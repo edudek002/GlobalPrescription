@@ -15,14 +15,14 @@ Front end developers: Sam, Walter, Amin
 
 Todays purpose will be to design front-end UI and also list components to use for database structure (mongoose or mySQL etc..) 
 
-Discussed Front-End and straw horse design.
-Found Drugsbankplus API to pull prescription drugs data
-Discussed database (Mongo DB / MySql)
-Discussed team member roles and all in agreement based on preference and willing to assist as needed.
-Added Trello
-Added GitHub Repo.
-Discussed Meeting schedule.
-Discussed on maintaining a good communication 
+- Discussed Front-End and straw horse design.
+- Found Drugsbankplus API to pull prescription drugs data
+- Discussed database (Mongo DB / MySql)
+- Discussed team member roles and all in agreement based on preference and willing to assist as needed.
+- Added Trello
+- Added GitHub Repo.
+- Discussed Meeting schedule.
+- Discussed on maintaining a good communication 
 
 We will be using Trello to for project management, and constantly push and pull to the github master branch. 
 
