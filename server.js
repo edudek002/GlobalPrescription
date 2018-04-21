@@ -6,6 +6,8 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 const axios = require("axios");
 
+
+
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -15,7 +17,7 @@ app.use(express.static("client/build"));
 //app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/internationaldb");
+//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/internationaldb");
 
 // Start the API server
 app.listen(PORT, function() {
@@ -33,3 +35,6 @@ axios({
   .then(function(response) {
   console.log(response.data.results[0].active_ingredient);
 });
+
+
+
