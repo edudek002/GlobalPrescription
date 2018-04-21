@@ -16,6 +16,11 @@ mongoose.connect(
 
 const drugSeed = [
   {
+    drug : "test",
+    active_ingredient : "test2",
+    dosage : "never"
+  },
+  {
     drug: "Duvadilan",
     active_ingredient: "Isoxsuprine",
     dosage: "10 to 20mg, three or four times daily"
