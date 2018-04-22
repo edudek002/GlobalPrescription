@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import DeleteBtn from "../DeleteBtn";
+
 import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
@@ -8,6 +9,7 @@ import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Input, TextArea, FormBtn } from "../SearchBar";
 // import { Input, FormBtn } from "../Form";
+
 
 class MyDrugs extends Component {
   state = {
@@ -17,22 +19,38 @@ class MyDrugs extends Component {
     dosage: "",
     deleted: false,
     results: [],
-    saved: []  
+    saved: [], 
+    search : "morphine"
+
   };      
 
 
 
-  // GET request for remote image
-  /*axios({
-      method:'get',
-      url: BASEURL,
-    })
-      .then(function(response) {
-      console.log(response.data.results[0].active_ingredient);
-    });*/
+
 
 
   
+
+   searchAPI = () => {
+    const search = this.state.search
+    const query = "?search=" + search
+    console.log("query: " + query);
+
+    API.searchDrug(query)
+      .then(res => 
+        {
+          console.log( res.data.results[0]);
+          this.setState({
+            results : res.data.results[0].openfda.generic_name
+          })
+          let drugData = res.data.results[0].purpose
+          console.log(drugData);
+
+      
+        })
+      
+      .catch(err => console.log(err));
+  };
 
   handleSearchSubmit = event => {
         this.searchAPI();
@@ -68,6 +86,7 @@ class MyDrugs extends Component {
   };
 
   render() {
+
      return <Container fluid>
          <Row>
            <Col size="md-12">
@@ -111,9 +130,13 @@ class MyDrugs extends Component {
                    </ListItem>)}
                </List> : <h3>No Results to Display</h3>}
            </div>
+            <div>
+          <p>{this.state.results}</p>
+          <button onClick={() => this.searchAPI()}> API Call  </button>
+          
+        </div>
          </Row>
        </Container>;
   } 
-}
 
 export default MyDrugs;
