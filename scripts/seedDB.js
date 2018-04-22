@@ -9,9 +9,6 @@ console.log("Is this working???????");
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/internationaldb",
-  {
-    useMongoClient: true
-  }
 );
 
 const drugSeed = [
@@ -85,6 +82,11 @@ const drugSeed = [
     active_ingredient: "Viartril-S",
     dosage : "one to two drops every four hours"
   }
+  {
+    drug : "morphine",
+    active_ingredient : "gabapentin", 
+    dosage : "300mg/day"
+  }
 
 ];
 
@@ -92,6 +94,7 @@ db.Drug
   .remove({})
   .then(() => db.Drug.collection.insertMany(drugSeed))
   .then(data => {
+    console.log(data.length);
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);
   })
