@@ -17,22 +17,56 @@ class MyDrugs extends Component {
     dosage: "",
     deleted: false,
     results: [],
-    saved: []  
+    saved: [], 
+    search : "ibuprofen"
   };      
 
 
 
-  // GET request for remote image
-  /*axios({
-      method:'get',
-      url: BASEURL,
-    })
-      .then(function(response) {
-      console.log(response.data.results[0].active_ingredient);
-    });*/
+  // // GET request for remote image
+  // axios({
+  //     method:'get',
+  //     url: BASEURL,
+  //   })
+  //     .then(function(response) {
+  //     console.log(response.data.results[0].active_ingredient);
+  //   });
+
+   searchAPI = () => {
+    const search = this.state.search
+    const query = "?search=" + search
+    // let startDate = this.state.startDate;
+    // let endDate = this.state.endDate;
+    // let query = "&q=" + search + 
+    // "&begin_date=" + 
+    // startDate + "0101" +
+    // "&end_date=" +  
+    // endDate + "1231";
+    console.log("query: " + query);
+
+    API.searchDrug(query)
+      .then(res => 
+        {
+          console.log( res.data.results[0]);
+          this.setState({
+            results : res.data.results[0].purpose
+          })
+          let drugData = res.data.results[0].purpose
+          console.log(drugData);
+
+      
+        })
+      
+      .catch(err => console.log(err));
 
 
-  
+
+    // this.setState({
+    //   search: "",
+    //   startDate: "",
+    //   endDate: ""
+    // })
+  };
 
   handleSearchSubmit = event => {
         this.searchAPI();
@@ -94,7 +128,11 @@ class MyDrugs extends Component {
             <h3>No Results to Display</h3>
           )}
         </div>
-
+        <div>
+          <p>{this.state.results}</p>
+          <button onClick={() => this.searchAPI()}> API Call  </button>
+          
+        </div>
       </div>
     )
 
