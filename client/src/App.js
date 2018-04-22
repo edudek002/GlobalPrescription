@@ -1,6 +1,18 @@
 import React from "react";
-import Form from "./Components/Form";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Drugs from "./Components/MyDrugs";
 
-const App = () => <Form />;
+
+const App = () => (
+
+    <Router>
+    <div>     
+      <Switch>
+        <Route exact path="/" component={Drugs} />
+        <Route exact path="/drugs" component={Drugs} />
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;
