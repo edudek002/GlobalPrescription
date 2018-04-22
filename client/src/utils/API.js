@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const BASEURL = "https://api.fda.gov/drug/label.json"
 
 
@@ -20,6 +21,7 @@ export default {
   saveDrug: function(drugData) {
     return axios.post("/api/drugs", drugData);
   },
+
   searchDrug: function(query){
     console.log("My full query " + BASEURL); 
     return axios.get(BASEURL + query);
