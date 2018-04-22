@@ -1,13 +1,13 @@
 
 import React, { Component } from "react";
 import DeleteBtn from "../DeleteBtn";
-//import Jumbotron from "../../components/Jumbotron";
+import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-//import { Col, Row, Container } from "../../components/Grid";
+import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
-//import { Input, TextArea, FormBtn } from "../../components/Form";
-//import { Input, FormBtn } from "../Form";
+import { Input, TextArea, FormBtn } from "../SearchBar";
+// import { Input, FormBtn } from "../Form";
 
 class MyDrugs extends Component {
   state = {
@@ -68,39 +68,52 @@ class MyDrugs extends Component {
   };
 
   render() {
-    return (
+     return <Container fluid>
+         <Row>
+           <Col size="md-12">
+           <Jumbotron>
+             <h1> HELLO WORLD</h1>
+           </Jumbotron>
+           </Col>
+          </Row>
 
-      <div>
+          <Row>
+            <Col size="md-12">
+           <h1>Let's search my drugs</h1>
+          </Col>
 
-        <h1>Let's search my drugs</h1>
-        
+          </Row>
 
-        <div>
+          <Row>
+            <Col size="md-4">
 
-          {this.state.drugs.length ? (
-            <List>
-              {this.state.drugs.map(drug => (
-                <ListItem key={drug._id}>
-                  <Link to={"/drugs/" + drug._id}>
-                    <strong>
-                      {drug.drug} === {drug.active_ingredient}
-                    </strong>
-                  </Link>
-                  <DeleteBtn onClick={() => this.deleteDrug(drug._id)} />
-                </ListItem>
-              ))}
-            </List>
-          ) : (
-            <h3>No Results to Display</h3>
-          )}
-        </div>
+           <form>
+             <Input value={this.state.title} onChange={this.handleInputChange} name="search" placeholder="Search Prescription (required)" />
+             <Input value={this.state.author} onChange={this.handleInputChange} name="active-ingredient" placeholder="Active Ingredient (required)" />
+             {/* <TextArea value={this.state.synopsis} onChange={this.handleInputChange} name="synopsis" placeholder="Synopsis (Optional)" /> */}
+             <FormBtn enabled={!(this.state.author && this.state.title)} onClick={this.handleFormSubmit}>
+               Submit Prescription
+             </FormBtn>
+           </form>
+           </Col>
+           </Row>
 
-      </div>
-    )
-
-  }
-
-  
+           <Row>
+           <div>
+             {this.state.drugs.length ? <List>
+                 {this.state.drugs.map(drug => <ListItem key={drug._id}>
+                     <Link to={"/drugs/" + drug._id}>
+                       <strong>
+                         {drug.drug} === {drug.active_ingredient}
+                       </strong>
+                     </Link>
+                     <DeleteBtn onClick={() => this.deleteDrug(drug._id)} />
+                   </ListItem>)}
+               </List> : <h3>No Results to Display</h3>}
+           </div>
+         </Row>
+       </Container>;
+  } 
 }
 
 export default MyDrugs;

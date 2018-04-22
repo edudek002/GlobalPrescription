@@ -81,7 +81,7 @@ const drugSeed = [
     drug : "Glucosamine",
     active_ingredient: "Viartril-S",
     dosage : "one to two drops every four hours"
-  }
+  },
   {
     drug : "morphine",
     active_ingredient : "gabapentin", 
