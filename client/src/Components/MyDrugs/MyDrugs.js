@@ -91,7 +91,7 @@ class MyDrugs extends Component {
          <Row>
            <Col size="md-12">
            <Jumbotron>
-             <h1> HELLO WORLD</h1>
+             <h1> HELLO WORLD!</h1>
            </Jumbotron>
            </Col>
           </Row>
