@@ -136,8 +136,8 @@ class MyDrugs extends Component {
           
         </div>
          </Row>
-       </Container>;
-     }
+       </Container>
+     };
   } 
 
 export default MyDrugs;
