@@ -45,7 +45,7 @@ class MyDrugs extends Component {
             results : res.data.results[0].openfda.generic_name
           })
           let drugData = res.data.results[0].purpose
-          console.log(drugData);
+         
 
       
         })
@@ -131,12 +131,15 @@ class MyDrugs extends Component {
                    </ListItem>)}
                </List> : <h3>No Results to Display</h3>}
            </div>
-            <div>
+           
+         </Row>
+         <Row>
+          <div>
           <p>{this.state.results}</p>
           <button onClick={() => this.searchAPI()}> API Call  </button>
           
         </div>
-         </Row>
+        </Row>
        </Container>
      };
   } 
