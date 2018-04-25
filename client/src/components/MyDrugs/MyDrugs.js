@@ -1,9 +1,8 @@
 
 import React, { Component } from "react";
-import DeleteBtn from "../DeleteBtn";
-
-import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
+import DeleteBtn from "../DeleteBtn";
+import Jumbotron from "../Jumbotron";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
@@ -32,7 +31,7 @@ class MyDrugs extends Component {
   }
 
   loadDrugs = () => {
-    const v = "test2";
+    //const v = "test2";
     API.getDrugs()
       .then(res =>
         this.setState({ drugs: res.data, drug: "", active_ingredient: "",
@@ -52,12 +51,28 @@ class MyDrugs extends Component {
           console.log( res.data.results[0]);
           this.setState({
             results : res.data.results[0].openfda.generic_name
+          
           })
           let drugData = res.data.results[0].purpose
+
         })
       
       .catch(err => console.log(err));
+
+    // this.setState({
+    //   drug: this.state.drug,
+    //   active_ingredient: this.state.active_ingredient,
+    //   dosage: this.state.dosage,
+    //   frequency: this.state.frequency,
+    //   note: this.state.note
+      
+    // })
+    // console.log("My API =========================");
+    // console.log("My state " + this.state);
+    // console.log("My drug  " + this.state.drug);
   };
+
+
 
   handleSearchSubmit = event => {
         this.searchAPI();  
@@ -78,34 +93,21 @@ class MyDrugs extends Component {
     });
   };
 
-  handleFormSubmit = drug => {
-    console.log("inside handleformSubmit", drug);
-    if (drug.drug) {
+  handleFormSubmit = event => {
+    if (this.state.drug) {
       API.saveDrug({
-        drug: drug.drug,
-        active_ingredient: drug.active_ingredient,
-        dosage: drug.dosage,
-        frequency: drug.frequency,
-        note: drug.note
+        drug: this.state.drug,
+        active_ingredient: this.state.active_ingredient,
+        dosage: this.state.dosage,
+        frequency: this.state.frequency,
+        note: this.state.note
       })
-        .then(res => this.loadArticles())
+        .then(res => this.loadDrugs())
         .catch(err => console.log(err));
     }
-
-    this.setState({
-      drug: this.state.drug,
-      active_ingredient: this.state.active_ingredient,
-      dosage: this.state.dosage,
-      frequency: this.state.frequency,
-      note: this.state.note
-      
-    })
-    console.log("My API =========================");
-    console.log(this.state);
-    console.log("My drug  " + this.state.drug);
-  
   };
 
+    
   render() {
 
      return <Container fluid>
@@ -119,6 +121,7 @@ class MyDrugs extends Component {
 
           <Row>
             <Col size="md-6">
+            <h2>Please Enter Your Medicine</h2>
               <form>
     
                 <InputMedList
@@ -131,7 +134,7 @@ class MyDrugs extends Component {
                   value={this.state.active_ingredient}
                   onChange={this.handleInputChange}
                   name="active_ingredient"
-                  placeholder="active_ingredient (required)"
+                  placeholder="Active Ingredient (required)"
                 />
                 <InputMedList
                   value={this.state.dosage}
@@ -143,11 +146,17 @@ class MyDrugs extends Component {
                   value={this.state.frequency}
                   onChange={this.handleInputChange}
                   name="frequency"
-                  placeholder="frequency"
+                  placeholder="Frequency"
                 />
+                <TextAreaMedList
+                value={this.state.note}
+                onChange={this.handleInputChange}
+                name="note"
+                placeholder="Note"
+              />
                 
                 <FormBtnMedList
-                  disabled={!(this.state.title)}
+                  disabled={!(this.state.drug)}
                   onClick={this.handleFormSubmit}
                 >
                   Submit
@@ -156,16 +165,46 @@ class MyDrugs extends Component {
             </Col>
           </Row>
 
+          
+
+          <Row>
+          <Col size="md-6 sm-12">
+            
+            <h2>Medicine I Take</h2>
+            
+            {this.state.drugs.length ? (
+              <List>
+                {this.state.drugs.map(drug => (
+                  <ListItem key={drug._id}>
+                    <Link to={"/drugs/" + drug._id}>
+                      <strong>
+                      {drug.drug} take {drug.dosage} {drug.frequency}
+                      </strong>
+                    </Link>
+                    <DeleteBtn onClick={() => this.deleteDrug(drug._id)} />
+                    
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col>
+          </Row>
+
+
 
           <Row>
             <Col size="md-6">
+              <h2>Pick The Country</h2>
               <CountryDd></CountryDd>
+              
               <MedList></MedList>
             </Col>
           </Row>
           <Row>
             <Col size="md-12">
-           <h1>Let's search my drugs</h1>
+           <h2>Let's search my drugs</h2>
           </Col>
 
           </Row>
