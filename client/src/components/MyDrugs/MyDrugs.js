@@ -64,6 +64,7 @@ class MyDrugs extends Component {
   }
 
   loadDrugs = () => {
+    const v = "test2";
     API.getDrugs()
       .then(res =>
         this.setState({ drugs: res.data, drug: "", active_ingredient: "",

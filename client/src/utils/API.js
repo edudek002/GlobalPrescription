@@ -25,7 +25,9 @@ export default {
   searchDrug: function(query){
     console.log("My full query " + BASEURL); 
     return axios.get(BASEURL + query);
-  } 
-
+  }, 
+  drugSearch : function(v) {
+    return axios.get("/api/drugs/search")
+  }
 
 };
