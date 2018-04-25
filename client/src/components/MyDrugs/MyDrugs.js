@@ -10,6 +10,7 @@ import { List, ListItem } from "../List";
 import { Input, TextArea, FormBtn } from "../SearchBar";
 // import { Input, FormBtn } from "../Form";
 import CountryDd from "../CountryDd";
+import MedList from "../MedList";
 
 
 class MyDrugs extends Component {
@@ -96,7 +97,12 @@ class MyDrugs extends Component {
            </Jumbotron>
            </Col>
           </Row>
-          <CountryDd></CountryDd>
+          <Row>
+            <Col size="md-6">
+              <CountryDd></CountryDd>
+              <MedList></MedList>
+            </Col>
+          </Row>
           <Row>
             <Col size="md-12">
            <h1>Let's search my drugs</h1>
