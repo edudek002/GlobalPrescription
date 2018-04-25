@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 const drugSchema = new Schema({
   drug: { type: String, required: true },
   active_ingredient: { type: String, required: true },
-  dosage: String
+  dosage: String,
+  frequency: String,
+  note: String
 });
 
 const Drug = mongoose.model("Drug", drugSchema);
