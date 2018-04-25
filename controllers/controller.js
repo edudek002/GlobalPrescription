@@ -5,7 +5,7 @@ module.exports = {
 
   findAll: function(req, res) {
     db.Drug
-      .find(req.query)
+      .find({active_ingredient : "test2"})
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -34,5 +34,28 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findADrug: function (req, res) {
+    console.log("route hit");
+    var name="active_ingredient";
+    var value = req.params.value;
+    db.Drug.findOne({[name]:value}, function(err, item) {
+    console.log(item);
+    res.json(item);
+
+    });
   }
 };
+
+
+// var name="active_ingredient";
+// var value = req.params.value;
+// collection.findOne({[name]:value}, function(err, item) {
+// res.send(item);
+// });
+
+// var name = req.params.name;
+// var value = req.params.value;
+// var query = {};
+// query[name] = value;
+// collection.findOne(query, function (err, item) { ... });
