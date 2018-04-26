@@ -121,7 +121,7 @@ class MyDrugs extends Component {
 
           <Row>
             <Col size="md-6">
-            <h2>Please Enter Your Medicine</h2>
+            <h2>Enter Your Medicine</h2>
               <form>
     
                 <InputMedList
