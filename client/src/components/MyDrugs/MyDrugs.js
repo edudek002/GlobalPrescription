@@ -127,17 +127,47 @@ class MyDrugs extends Component {
   render() {
 
      return <Container fluid>
-         <Row>
-           <Col size="md-12">
+        {/* Main header of app */}
+        <Row>
+          <Col size="md-12">
            <Jumbotron>
              <h1> HELLO WORLD!</h1>
            </Jumbotron>
-           </Col>
-          </Row>
+          </Col>
+        </Row>
 
-          <Row>
-            <Col size="md-6">
-            <h2>Enter Your Medicine</h2>
+        {/* User enter point for serch */}
+        <Row>
+          <Col size="md-5">
+            <div>
+              <FormBtn onClick={() => this.handleFormSubmit()}> Search For This Drug  </FormBtn>
+              <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />
+              <p>{this.state.generic_name}</p>
+              <p>{this.state.administration}</p>                   
+            </div>
+          </Col>
+
+          {/* Choose Country to search */}
+          <Col size="md-2">
+            <h2>Select Country</h2>
+            <CountryDd></CountryDd>              
+          </Col>
+
+          {/* Return answer to desplay window */}
+          <Col size="md-5">
+            <div>
+            <h2>Return your search</h2>
+              <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search return" />
+              <p>{this.state.generic_name}</p>
+              <p>{this.state.administration}</p>                   
+            </div>
+          </Col>
+        </Row>
+        
+
+        <Row>
+            <Col size="md-3">
+            <h2>Save Medication List</h2>
               <form>
     
                 <InputMedList
@@ -179,9 +209,12 @@ class MyDrugs extends Component {
                 </FormBtnMedList>
               </form>
             </Col>
-          </Row>
 
-          
+            {/* List of users medications  */}
+            <Col size="md-9">
+              <MedList></MedList>
+            </Col>
+          </Row>
 
           <Row>
           <Col size="md-6 sm-12">
@@ -208,18 +241,6 @@ class MyDrugs extends Component {
           </Col>
           </Row>
 
-
-
-          <Row>
-            <Col size="md-6">
-              <h2>Pick The Country</h2>
-              <CountryDd></CountryDd>
-              
-              <MedList></MedList>
-            </Col>
-          </Row>
-
-
            <Row>
            <Col size="md-6">
              {this.state.drugs.length ? <List>
@@ -232,18 +253,8 @@ class MyDrugs extends Component {
                      <DeleteBtn onClick={() => this.deleteDrug(drug._id)} />
                    </ListItem>)}
                </List> : <h3>No Results to Display</h3>}
-           </Col>
-           
+           </Col>          
          </Row>
-         <Row>
-          <div>
-          <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />
-          <p>{this.state.generic_name}</p>
-          <p>{this.state.administration}</p>
-          <FormBtn onClick={() => this.handleFormSubmit()}> Search For This Drug  </FormBtn>
-          
-        </div>
-        </Row>
        </Container>
      };
   } 
