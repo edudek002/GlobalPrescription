@@ -99,22 +99,22 @@ class MyDrugs extends Component {
     });
   };
 
-  // handleFormSubmit = event => {
-  //   if (this.state.drug) {
-  //     API.saveDrug({
-  //       drug: this.state.drug,
-  //       active_ingredient: this.state.active_ingredient,
-  //       dosage: this.state.dosage,
-  //       frequency: this.state.frequency,
-  //       note: this.state.note
-  //     })
-  //       .then(res => this.loadDrugs())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
+
+  handleFormSubmit = event => {
+    if (this.state.drug) {
+      API.saveDrug({
+        drug: this.state.drug,
+        active_ingredient: this.state.active_ingredient,
+        dosage: this.state.dosage,
+        frequency: this.state.frequency,
+        note: this.state.note
+      })
+        .then(res => this.loadDrugs())
+        .catch(err => console.log(err));
+    }
+  };
 
 
-  // NATHAN 04.26 NATHAN 04.26 NATHAN 04.26
   handleDrugSubmit = event => {
     this.searchAPI();
     }
