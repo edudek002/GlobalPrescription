@@ -43,7 +43,7 @@ class MyDrugs extends Component {
   };
 
 
-   searchAPI = () => {
+  searchAPI = () => {
     let search = this.state.search
     let newSearch = this.state.apiSearch
     console.log(newSearch);
@@ -52,7 +52,7 @@ class MyDrugs extends Component {
     API.getDrugs()
       .then(res => {
         for (let i = 0; i <res.data.length; i++) {
-          if (search == res.data[i].drug) {
+          if (search === res.data[i].drug) {
             console.log(res.data[i].active_ingredient)
             this.setState({
               apiSearch : res.data[i].active_ingredient
@@ -70,19 +70,12 @@ class MyDrugs extends Component {
                   this.setState({
                     generic_name : res.data.results[0].openfda.generic_name,
                     administration : res.data.results[0].dosage_and_administration
-                  
                   })
-                  
-
                 })
-              
               .catch(err => console.log(err));
-
-                }
-              }
-
-      });
-      
+            }
+          }
+      });    
   };
 
 
@@ -106,23 +99,39 @@ class MyDrugs extends Component {
     });
   };
 
-  // handleFormSubmit = event => {
-  //   if (this.state.drug) {
-  //     API.saveDrug({
-  //       drug: this.state.drug,
-  //       active_ingredient: this.state.active_ingredient,
-  //       dosage: this.state.dosage,
-  //       frequency: this.state.frequency,
-  //       note: this.state.note
-  //     })
-  //       .then(res => this.loadDrugs())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
 
   handleFormSubmit = event => {
+    if (this.state.drug) {
+      API.saveDrug({
+        drug: this.state.drug,
+        active_ingredient: this.state.active_ingredient,
+        dosage: this.state.dosage,
+        frequency: this.state.frequency,
+        note: this.state.note
+      })
+        .then(res => this.loadDrugs())
+        .catch(err => console.log(err));
+    }
+  };
+
+
+  handleDrugSubmit = event => {
     this.searchAPI();
-  }
+    }
+
+  handleFormSubmit = event => {
+    if (this.state.drug) {
+      API.saveDrug({
+        drug: this.state.drug,
+        active_ingredient: this.state.active_ingredient,
+        dosage: this.state.dosage,
+        frequency: this.state.frequency,
+        note: this.state.note
+      })
+        .then(res => this.loadDrugs())
+        .catch(err => console.log(err));
+    }
+  };
     
   render() {
 
@@ -255,6 +264,15 @@ class MyDrugs extends Component {
                </List> : <h3>No Results to Display</h3>}
            </Col>          
          </Row>
+         <Row>
+          <div>
+          <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />
+          <p>{this.state.generic_name}</p>
+          <p>{this.state.administration}</p>
+          <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>
+          
+        </div>
+        </Row>
        </Container>
      };
   } 
