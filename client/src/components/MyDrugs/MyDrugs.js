@@ -106,21 +106,21 @@ class MyDrugs extends Component {
     });
   };
 
-  // handleFormSubmit = event => {
-  //   if (this.state.drug) {
-  //     API.saveDrug({
-  //       drug: this.state.drug,
-  //       active_ingredient: this.state.active_ingredient,
-  //       dosage: this.state.dosage,
-  //       frequency: this.state.frequency,
-  //       note: this.state.note
-  //     })
-  //       .then(res => this.loadDrugs())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
-
   handleFormSubmit = event => {
+    if (this.state.drug) {
+      API.saveDrug({
+        drug: this.state.drug,
+        active_ingredient: this.state.active_ingredient,
+        dosage: this.state.dosage,
+        frequency: this.state.frequency,
+        note: this.state.note
+      })
+        .then(res => this.loadDrugs())
+        .catch(err => console.log(err));
+    }
+  };
+
+  handleDrugSubmit = event => {
     this.searchAPI();
   }
     
@@ -240,7 +240,7 @@ class MyDrugs extends Component {
           <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />
           <p>{this.state.generic_name}</p>
           <p>{this.state.administration}</p>
-          <FormBtn onClick={() => this.handleFormSubmit()}> Search For This Drug  </FormBtn>
+          <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>
           
         </div>
         </Row>
