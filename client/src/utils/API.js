@@ -23,7 +23,7 @@ export default {
   },
 
   searchDrug: function(query){
-    console.log("My full query " + BASEURL); 
+    console.log("My full query " + BASEURL + query); 
     return axios.get(BASEURL + query);
   }, 
   drugSearch : function(v) {
