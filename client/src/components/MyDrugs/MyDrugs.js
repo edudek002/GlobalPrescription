@@ -218,26 +218,7 @@ class MyDrugs extends Component {
               <MedList></MedList>
             </Col>
           </Row>
-          <Row>
-            <Col size="md-12">
-           <h2>Let's search my drugs</h2>
-          </Col>
 
-          </Row>
-
-          <Row>
-            <Col size="md-6">
-
-           <form>
-             <Input value={this.state.title} onChange={this.handleInputChange} name="search" placeholder="Search Prescription (required)" />
-             <Input value={this.state.author} onChange={this.handleInputChange} name="active-ingredient" placeholder="Active Ingredient (required)" />
-             {/* <TextArea value={this.state.synopsis} onChange={this.handleInputChange} name="synopsis" placeholder="Synopsis (Optional)" /> */}
-             <FormBtn enabled={!(this.state.author && this.state.title)} onClick={this.handleFormSubmit}>
-               Submit Prescription
-             </FormBtn>
-           </form>
-           </Col>
-           </Row>
 
            <Row>
            <Col size="md-6">
