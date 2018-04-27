@@ -103,7 +103,7 @@ class Login extends Component {
                         
   </div>
                 <div>
-                    <LoginBtn type="submit" className="btn btn-blue ml-5 mr-5" onClick={this.handleFormSubmit2} />
+                    <LoginBtn type="submit" className="btn btn-green ml-5 mr-5" onClick={this.handleFormSubmit2} />
                 
                     <SignupBtn type="submit" className="btn btn-green ml-5" onClick={this.handleFormSubmit} />
                 
