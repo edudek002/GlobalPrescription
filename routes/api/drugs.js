@@ -5,7 +5,8 @@ const controller = require("../../controllers/controller");
 
 router.route("/")
   .get(controller.findAll)
-  .post(controller.create);
+  .post(controller.create)
+  .post(controller.addUser);
 
 
 router.route("/")
