@@ -1,3 +1,4 @@
 module.exports = {
-  Drug : require("./drug")
+  Drug : require("./drug"),
+  User: require("./authent")
 };
