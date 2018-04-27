@@ -1,11 +1,11 @@
-const mongoose = require("mongoose").mongoose;
+
+const mongoose = require("mongoose");
+
 const db = require("../models");
 mongoose.Promise = global.Promise;
 
 
 console.log("Is this working???????");
-
-
 
 // const authent = new Mongoose();
 // authent.connect(process.env.MONGODB_URI || "mongodb://localhost/authenticationdb",);
@@ -13,12 +13,13 @@ console.log("Is this working???????");
 // const drugdata = new Mongoose();
 // drugdata.connect(process.env.MONGODB_URI || "mongodb://localhost/internationaldb",);
 
+
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/internationaldb",
-);
 
+);
 
 
 
@@ -101,6 +102,7 @@ const drugSeed = [
 
 ];
 
+
 const userSeed = [
   {
     userName: "",
@@ -108,7 +110,7 @@ const userSeed = [
   }
 ] 
 db.User
-  // .remove({})
+ 
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.length);
@@ -124,7 +126,7 @@ db.Drug
   .remove({})
   .then(() => db.Drug.collection.insertMany(drugSeed))
   .then(data => {
-    console.log(data.length);
+
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);
   })
@@ -132,3 +134,4 @@ db.Drug
     console.error(err);
     process.exit(1);
   });
+

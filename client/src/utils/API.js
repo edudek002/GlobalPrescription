@@ -1,9 +1,12 @@
 import axios from "axios";
 
-const BASEURL = "https://api.fda.gov/drug/label.json?search=ibuprofen"
+
+const BASEURL = "https://api.fda.gov/drug/label.json"
+
 
 export default {
 
+  // Gets all drugs
   addUser: function(userData){
     return axios.post("/api/drugs", userData);
   },
@@ -19,7 +22,6 @@ export default {
     
     window.location = "http://localhost:3000/drugs"
   },
-  // Gets all drugs
   getDrugs: function() {
     return axios.get("/api/drugs");
   },
@@ -35,10 +37,12 @@ export default {
   saveDrug: function(drugData) {
     return axios.post("/api/drugs", drugData);
   },
-  searchDrug: function(){
-    console.log("My full query " + BASEURL); 
-    return axios.get(BASEURL);
-  } 
-
+  searchDrug: function(query){
+    console.log("My full query " + BASEURL + query); 
+    return axios.get(BASEURL + query);
+  }, 
+  drugSearch : function(v) {
+    return axios.get("/api/drugs/search")
+  }
 
 };
