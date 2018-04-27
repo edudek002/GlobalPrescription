@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import LoginBtn from "../LoginBtn";
 import API from "../../utils/API";
-import { Input } from "../../Components/Form";
+import { Input } from "../../components/Form";
 import SignupBtn from "../SignupBtn";
+import Jumbotron from "../Jumbotron";
+import { Col, Row, Container } from "../Grid";
 
 const Keycode = [];
 
@@ -73,6 +75,14 @@ class Login extends Component {
 
     render() {
         return (
+            <div>
+            <Row>
+                <Col size="md-12">
+                    <Jumbotron>
+                        <h1> HELLO WORLD!</h1>
+                    </Jumbotron>
+                </Col>
+            </Row>
             <div className="container fluid card">
             <form>
                 <div class="form-group">
@@ -115,7 +125,7 @@ class Login extends Component {
             </div>
        
 
-                    
+             </div>       
         );
     }
 }
