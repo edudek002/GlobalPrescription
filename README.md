@@ -26,3 +26,6 @@ Todays purpose will be to design front-end UI and also list components to use fo
 
 We will be using Trello to for project management, and constantly push and pull to the github master branch. 
 
+### Technology used
+- reactstrap
+- mongoDB
