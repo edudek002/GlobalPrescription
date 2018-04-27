@@ -1,1 +1,2 @@
-export { default } from "./MedList";
+export * from "./MedList";
+export * from "./MedItem";

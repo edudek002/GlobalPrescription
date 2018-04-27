@@ -1,21 +1,16 @@
 const router = require("express").Router();
 const controller = require("../../controllers/controller");
 
-// Matches with "/api/articles"
+// Matches with "/api/drugs"
 
 router.route("/")
   .get(controller.findAll)
-  .post(controller.addUser);
+  .post(controller.create);
+
 
 router.route("/")
   .get(controller.takeInfo)
   .post(controller.addUser);
-
-console.log(controller);
-
-// Matches with "/api/articles"
-
-
 
 
 // Finds existing Username in database
@@ -26,13 +21,13 @@ router.route("/loginn")
 router.route("/logged")
   .get(controller.displayUser);  
 
-//mat
+//matches
 router
 	.route("/search")
 	.get(controller.findADrug);
 
 
-// Matches with "/api/articles/:id"
+// Matches with "/api/drugs/:id"
 router
   .route("/:id")
   .get(controller.findById)

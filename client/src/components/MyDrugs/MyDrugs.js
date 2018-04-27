@@ -5,10 +5,10 @@ import Jumbotron from "../Jumbotron";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
-import { Input, TextArea, FormBtn } from "../SearchBar";
+import { Input, FormBtn } from "../SearchBar";
 import { InputMedList, TextAreaMedList, FormBtnMedList } from "../FormMedList";
 import CountryDd from "../CountryDd";
-import MedList from "../MedList";
+import {MedList} from "../MedList";
 
 
 class MyDrugs extends Component {
@@ -30,16 +30,12 @@ class MyDrugs extends Component {
   componentDidMount() {
     this.loadDrugs();
   }
-  loadDrugs = () => {
-    //const v = "test2";
-    API.getDrugs()
-      .then(res => {
-        console.log(res.data)
-        this.setState({drugs : res.data, drug : "", active_ingredient : "", dosage : ""})
-      }
 
-        // this.setState({ drugs: res.data, drug: "", active_ingredient: "",
-        // dosage: ""})
+  loadDrugs = () => {
+    API.getDrugs()
+      .then(res => 
+      
+        this.setState({drugs : res.data, drug : "", active_ingredient : "", dosage : ""})
       )
       .catch(err => console.log("Error from loadDrugs ", err));
   };
@@ -76,6 +72,7 @@ class MyDrugs extends Component {
           }
       });    
   };
+
   handleSearchSubmit = event => {
         this.searchAPI();  
   };
@@ -85,6 +82,7 @@ class MyDrugs extends Component {
       .then(res => this.loadDrugs())
       .catch(err => console.log(err));
   };
+
   handleInputChange = event => {
     const name = event.target.name;
     let value  = event.target.value;
@@ -92,6 +90,7 @@ class MyDrugs extends Component {
       [name]: value
     });
   };
+
   handleFormSubmit = event => {
     if (this.state.drug) {
       API.saveDrug({
@@ -105,9 +104,11 @@ class MyDrugs extends Component {
         .catch(err => console.log(err));
     }
   };
+
   handleDrugSubmit = event => {
     this.searchAPI();
     }
+
   handleFormSubmit = event => {
     if (this.state.drug) {
       API.saveDrug({
@@ -123,30 +124,34 @@ class MyDrugs extends Component {
   };
     
   render() {
-     return <Container fluid>
+      return <Container fluid>
+
         {/* Main header of app */}
         <Row>
           <Col size="md-12">
-           <Jumbotron>
-             <h1> HELLO WORLD!</h1>
-           </Jumbotron>
+            <Jumbotron>
+              <h1> HELLO WORLD!</h1>
+            </Jumbotron>
           </Col>
         </Row>
+
         {/* User enter point for serch */}
         <Row>
           <Col size="md-5">
             <div>
-              <FormBtn onClick={() => this.handleFormSubmit()}> Search For This Drug  </FormBtn>
+              <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>
               <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />
               <p>{this.state.generic_name}</p>
               <p>{this.state.administration}</p>                   
             </div>
           </Col>
+
           {/* Choose Country to search */}
           <Col size="md-2">
             <h2>Select Country</h2>
             <CountryDd></CountryDd>              
           </Col>
+
           {/* Return answer to desplay window */}
           <Col size="md-5">
             <div>
@@ -157,57 +162,67 @@ class MyDrugs extends Component {
             </div>
           </Col>
         </Row>
+        <br></br>
+        <br></br>
+        <br></br>
         
         <Row>
-            <Col size="md-3">
+          <Col size="md-3">
             <h2>Save Medication List</h2>
-              <form>
-    
-                <InputMedList
-                  value={this.state.drug}
-                  onChange={this.handleInputChange}
-                  name="drug"
-                  placeholder="Name of your medicine (required)"
-                />
-                <InputMedList
-                  value={this.state.active_ingredient}
-                  onChange={this.handleInputChange}
-                  name="active_ingredient"
-                  placeholder="Active Ingredient (required)"
-                />
-                <InputMedList
-                  value={this.state.dosage}
-                  onChange={this.handleInputChange}
-                  name="dosage"
-                  placeholder="Dosage"
-                />
-                <InputMedList
-                  value={this.state.frequency}
-                  onChange={this.handleInputChange}
-                  name="frequency"
-                  placeholder="Frequency"
-                />
-                <TextAreaMedList
-                value={this.state.note}
+            <form>
+  
+              <InputMedList
+                value={this.state.drug}
                 onChange={this.handleInputChange}
-                name="note"
-                placeholder="Note"
+                name="drug"
+                placeholder="Name of your medicine (required)"
               />
+              <InputMedList
+                value={this.state.active_ingredient}
+                onChange={this.handleInputChange}
+                name="active_ingredient"
+                placeholder="Active Ingredient (required)"
+              />
+              <InputMedList
+                value={this.state.dosage}
+                onChange={this.handleInputChange}
+                name="dosage"
+                placeholder="Dosage"
+              />
+              <InputMedList
+                value={this.state.frequency}
+                onChange={this.handleInputChange}
+                name="frequency"
+                placeholder="Frequency"
+              />
+              <TextAreaMedList
+              value={this.state.note}
+              onChange={this.handleInputChange}
+              name="note"
+              placeholder="Note"
+            />
+              
+              <FormBtnMedList
+                disabled={!(this.state.drug)}
+                onClick={this.handleFormSubmit}
+              >
+                Submit
+              </FormBtnMedList>
+            </form>
+          </Col>
+
+          {/* List of users medications  */}
+          <Col size="md-9">
+            {this.state.drugs.length ? (
+              <MedList drugs={this.state.drugs} deleteDrug={this.deleteDrug}>
                 
-                <FormBtnMedList
-                  disabled={!(this.state.drug)}
-                  onClick={this.handleFormSubmit}
-                >
-                  Submit
-                </FormBtnMedList>
-              </form>
-            </Col>
-            {/* List of users medications  */}
-            <Col size="md-9">
-              <MedList></MedList>
-            </Col>
-          </Row>
-          <Row>
+              </MedList>
+            ) : <h4>No Results to Display</h4>}
+            
+          </Col>
+        </Row>
+
+        <Row>
           <Col size="md-6 sm-12">
             
             <h2>Medicine I Take</h2>
@@ -227,34 +242,11 @@ class MyDrugs extends Component {
                 ))}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+              <h3>No Result to Display</h3>
             )}
           </Col>
-          </Row>
-           <Row>
-           <Col size="md-6">
-             {this.state.drugs.length ? <List>
-                 {this.state.drugs.map(drug => <ListItem key={drug._id}>
-                     <Link to={"/drugs/" + drug._id}>
-                       <strong>
-                         {drug.drug} === {drug.active_ingredient}
-                       </strong>
-                     </Link>
-                     <DeleteBtn onClick={() => this.deleteDrug(drug._id)} />
-                   </ListItem>)}
-               </List> : <h3>No Results to Display</h3>}
-           </Col>          
-         </Row>
-         <Row>
-          <div>
-          <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />
-          <p>{this.state.generic_name}</p>
-          <p>{this.state.administration}</p>
-          <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>
-          
-        </div>
         </Row>
-       </Container>
-     };
+      </Container>
+    };
   } 
 export default MyDrugs;

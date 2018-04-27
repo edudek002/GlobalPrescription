@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import { Input } from "../../components/Form";
 import SignupBtn from "../SignupBtn";
 import Jumbotron from "../Jumbotron";
-import { Col, Row, Container } from "../Grid";
+import { Col, Row } from "../Grid";
 
 const Keycode = [];
 
