@@ -2,6 +2,11 @@ const router = require("express").Router();
 const controller = require("../../controllers/controller");
 
 // Matches with "/api/articles"
+
+router.route("/")
+  .get(controller.findAll)
+  .post(controller.addUser);
+
 router.route("/")
   .get(controller.takeInfo)
   .post(controller.addUser);
@@ -10,9 +15,6 @@ console.log(controller);
 
 // Matches with "/api/articles"
 
-router.route("/")
-  .get(controller.findAll)
-  .post(controller.create);
 
 
 

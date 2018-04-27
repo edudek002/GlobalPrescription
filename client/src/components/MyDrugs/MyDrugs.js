@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import API from "../../utils/API";
 import DeleteBtn from "../DeleteBtn";
@@ -31,18 +30,19 @@ class MyDrugs extends Component {
   componentDidMount() {
     this.loadDrugs();
   }
-
   loadDrugs = () => {
     //const v = "test2";
     API.getDrugs()
-      .then(res =>
-        this.setState({ drugs: res.data, drug: "", active_ingredient: "",
-        dosage: ""})
+      .then(res => {
+        console.log(res.data)
+        this.setState({drugs : res.data, drug : "", active_ingredient : "", dosage : ""})
+      }
+
+        // this.setState({ drugs: res.data, drug: "", active_ingredient: "",
+        // dosage: ""})
       )
       .catch(err => console.log("Error from loadDrugs ", err));
   };
-
-
   searchAPI = () => {
     let search = this.state.search
     let newSearch = this.state.apiSearch
@@ -65,7 +65,6 @@ class MyDrugs extends Component {
             API.searchDrug(query)
               .then(res => 
                 {
-
                   console.log( res.data.results[0]);
                   this.setState({
                     generic_name : res.data.results[0].openfda.generic_name,
@@ -77,20 +76,15 @@ class MyDrugs extends Component {
           }
       });    
   };
-
-
-
   handleSearchSubmit = event => {
         this.searchAPI();  
   };
-
   
   deleteDrug = id => {
     API.deleteDrug(id)
       .then(res => this.loadDrugs())
       .catch(err => console.log(err));
   };
-
   handleInputChange = event => {
     const name = event.target.name;
     let value  = event.target.value;
@@ -98,8 +92,6 @@ class MyDrugs extends Component {
       [name]: value
     });
   };
-
-
   handleFormSubmit = event => {
     if (this.state.drug) {
       API.saveDrug({
@@ -113,12 +105,9 @@ class MyDrugs extends Component {
         .catch(err => console.log(err));
     }
   };
-
-
   handleDrugSubmit = event => {
     this.searchAPI();
     }
-
   handleFormSubmit = event => {
     if (this.state.drug) {
       API.saveDrug({
@@ -134,7 +123,6 @@ class MyDrugs extends Component {
   };
     
   render() {
-
      return <Container fluid>
         {/* Main header of app */}
         <Row>
@@ -144,7 +132,6 @@ class MyDrugs extends Component {
            </Jumbotron>
           </Col>
         </Row>
-
         {/* User enter point for serch */}
         <Row>
           <Col size="md-5">
@@ -155,13 +142,11 @@ class MyDrugs extends Component {
               <p>{this.state.administration}</p>                   
             </div>
           </Col>
-
           {/* Choose Country to search */}
           <Col size="md-2">
             <h2>Select Country</h2>
             <CountryDd></CountryDd>              
           </Col>
-
           {/* Return answer to desplay window */}
           <Col size="md-5">
             <div>
@@ -173,7 +158,6 @@ class MyDrugs extends Component {
           </Col>
         </Row>
         
-
         <Row>
             <Col size="md-3">
             <h2>Save Medication List</h2>
@@ -218,13 +202,11 @@ class MyDrugs extends Component {
                 </FormBtnMedList>
               </form>
             </Col>
-
             {/* List of users medications  */}
             <Col size="md-9">
               <MedList></MedList>
             </Col>
           </Row>
-
           <Row>
           <Col size="md-6 sm-12">
             
@@ -249,7 +231,6 @@ class MyDrugs extends Component {
             )}
           </Col>
           </Row>
-
            <Row>
            <Col size="md-6">
              {this.state.drugs.length ? <List>
@@ -276,5 +257,4 @@ class MyDrugs extends Component {
        </Container>
      };
   } 
-
 export default MyDrugs;
