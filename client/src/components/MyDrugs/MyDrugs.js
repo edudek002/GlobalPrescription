@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import DeleteBtn from "../DeleteBtn";
+import SimpleMap from "../Map";
 import Jumbotron from "../Jumbotron";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
@@ -221,6 +222,16 @@ class MyDrugs extends Component {
             
           </Col>
         </Row>
+        <br></br>
+        <br></br>
+      
+        
+        <h3>Pharmacy Location</h3>
+        <SimpleMap></SimpleMap> 
+        
+        <br></br>
+        <br></br>
+    
 
         <Row>
           <Col size="md-6 sm-12">
