@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import DeleteBtn from "../DeleteBtn";
 import SimpleMap from "../Map";
 import Jumbotron from "../Jumbotron";
+import Nav from "../Nav";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
@@ -127,6 +128,10 @@ class MyDrugs extends Component {
   render() {
       return (
         <div>
+          <Row>
+          <Nav></Nav>
+          </Row>
+          
       {/* <Container fluid> */}
 
         {/* Main header of app */}

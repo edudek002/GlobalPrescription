@@ -10,9 +10,16 @@
   border-radius: 5px;
   border-color: whitesmoke;
 }
+.navbar {
+  overflow: hidden;
+  background-color: rgb(43, 17, 17);
+  /* position: fixed; */
+  top: 0;
+  width: 100%;
+  float: right;
+}
 
-/* inputmed {
-   border-style: solid;
-  border-radius: 5px;
-  border-color: whitesmoke;
-} */
+.navbar a:hover {
+  background: add;
+  color: teal ;
+}
