@@ -125,20 +125,24 @@ class MyDrugs extends Component {
   };
     
   render() {
-      return <Container fluid>
+      return (
+        <div>
+      {/* <Container fluid> */}
 
         {/* Main header of app */}
+        <div className="jumbotron">
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1> HELLO WORLD!</h1>
             </Jumbotron>
           </Col>
         </Row>
+        </div>
 
-        {/* User enter point for serch */}
+        {/* User enter point for search */}
+        <div className="container">
         <Row>
-          <Col size="md-5">
+          <Col size="md-4">
             <div>
               <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>
               <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />
@@ -148,7 +152,7 @@ class MyDrugs extends Component {
           </Col>
 
           {/* Choose Country to search */}
-          <Col size="md-2">
+          <Col size="md-3">
             <h2>Select Country</h2>
             <CountryDd></CountryDd>              
           </Col>
@@ -167,7 +171,9 @@ class MyDrugs extends Component {
         <br></br>
         <br></br>
         
+        <div className="medlist">
         <Row>
+          {/* <div className="inputmed"> */}
           <Col size="md-3">
             <h2>Save Medication List</h2>
             <form>
@@ -211,6 +217,7 @@ class MyDrugs extends Component {
               </FormBtnMedList>
             </form>
           </Col>
+          {/* </div> */}
 
           {/* List of users medications  */}
           <Col size="md-9">
@@ -222,6 +229,7 @@ class MyDrugs extends Component {
             
           </Col>
         </Row>
+        </div>
         <br></br>
         <br></br>
       
@@ -257,7 +265,10 @@ class MyDrugs extends Component {
             )}
           </Col>
         </Row>
-      </Container>
+      {/* </Container> */}
+      </div>
+      </div>
+      )
     };
   } 
 export default MyDrugs;

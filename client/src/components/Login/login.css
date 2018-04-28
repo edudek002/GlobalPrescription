@@ -1,0 +1,14 @@
+.card {
+    background-color: whitesmoke;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    margin-top: 200px;
+    border-style: round-large;
+
+}
+.big {
+    background-image: url("../Jumbotron/sky3.png");
+    height: 700px;
+    background-size: cover;
+}
