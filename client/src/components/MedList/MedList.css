@@ -3,3 +3,16 @@
   color: #180a97;
   background-color: aqua;
 }
+.medlist {
+  padding: 14px;
+  /* background-color: teal; */
+  border-style: solid;
+  border-radius: 5px;
+  border-color: whitesmoke;
+}
+
+/* inputmed {
+   border-style: solid;
+  border-radius: 5px;
+  border-color: whitesmoke;
+} */

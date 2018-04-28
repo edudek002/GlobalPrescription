@@ -3,15 +3,19 @@ const controller = require("../../controllers/controller");
 
 // Matches with "/api/drugs"
 
+
+
 router.route("/")
   .get(controller.findAll)
   .post(controller.create)
   .post(controller.addUser);
 
-
-router.route("/")
+router.route("/landing")
   .get(controller.takeInfo)
   .post(controller.addUser);
+
+
+
 
 
 // Finds existing Username in database
