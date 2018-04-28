@@ -128,9 +128,11 @@ class MyDrugs extends Component {
   render() {
       return (
         <div>
+          <Col size="md-12">
           <Row>
           <Nav></Nav>
           </Row>
+          </Col>
           
       {/* <Container fluid> */}
 

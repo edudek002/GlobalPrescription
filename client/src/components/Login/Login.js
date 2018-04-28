@@ -12,20 +12,9 @@ const Keycode = [];
 class Login extends Component {
   state = {
     userName: "",
-    passWord: ""
+    passWord: "",
+    userDrugs: []
   };
-
-  // componentDidMount() {
-  //     this.loadUser();
-  // }
-
-  // loadUser = () => {
-  //     API.loadUser()
-  //         .then(res =>
-  //             this.setState({ userName: res.data, passWord: ""})
-  //         )
-  //         .catch(err => console.log(err));
-  // };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -41,7 +30,8 @@ class Login extends Component {
         console.log(this.state.passWord);
       API.addUser({
         userName: this.state.userName,
-        passWord: this.state.passWord
+        passWord: this.state.passWord,
+        userDrugs: this.state.userDrugs
       })
         .then(res => {
           this.setState({ userName: "", passWord: "" });
