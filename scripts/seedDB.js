@@ -117,11 +117,11 @@ const drugSeed = [
 
 ];
 
-
 const userSeed = [
   {
     userName: "",
-    passWord: ""
+    passWord: "",
+    userDrugs: []
   }
 ] 
 db.User

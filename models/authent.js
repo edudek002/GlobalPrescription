@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     userName: { type: String, required: true },
-    passWord: { type: String, required: true }
+    passWord: { type: String, required: true },
+    userDrugs: {type: Array, required: false}
     
 });
 

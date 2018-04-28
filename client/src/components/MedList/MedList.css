@@ -10,16 +10,12 @@
   border-radius: 5px;
   border-color: whitesmoke;
 }
+
 .navbar {
-  overflow: hidden;
-  background-color: rgb(43, 17, 17);
-  /* position: fixed; */
+  position: fixed;
   top: 0;
   width: 100%;
-  float: right;
-}
-
-.navbar a:hover {
-  background: add;
-  color: teal ;
+  z-index: 2;
+  /* overflow: hidden;
+  background-color: rgb(216, 29, 29); */
 }
