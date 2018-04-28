@@ -85,7 +85,7 @@ class Login extends Component {
             </Row>
             <div className="container fluid card">
             <form>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <Input 
                         className="form-control"
@@ -96,7 +96,7 @@ class Login extends Component {
                         name="userName"
                         placeholder="username (required)"
                     />
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
                     <div className="form-group">
                         <label for="exampleInputPassword1">Password</label>
