@@ -8,15 +8,17 @@ export default {
 
   // Gets all drugs
   addUser: function(userData){
-    return axios.post("/api/landing", userData);
+    console.log("route hit");
+    console.log(userData);
+    return axios.post("/api/drugs/landing", userData);
   },
   findUser: function (userData) {
     console.log("this login button is working")
-    return axios.get("/api/landing/loginn", {params: userData});
+    return axios.get("/api/drugs/loginn", {params: userData});
   },
   displayUser: function (userData) {
     console.log("this display function is working")
-    return axios.get("/api/landing/logged", { params: userData });
+    return axios.get("/api/drugs/logged", { params: userData });
   },
   redirect: function (Token) {
     

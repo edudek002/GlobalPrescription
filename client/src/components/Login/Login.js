@@ -37,6 +37,8 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.userName && this.state.passWord) {
+        console.log(this.state.userName);
+        console.log(this.state.passWord);
       API.addUser({
         userName: this.state.userName,
         passWord: this.state.passWord
@@ -57,14 +59,19 @@ class Login extends Component {
         passWord: this.state.passWord
       })
         .then(res => {
+
+            console.log(res.data.length);
           while (Keycode.length > 0) {
             Keycode.pop();
           }
-          Keycode.push(res.data[0].userName + " " + res.data[0].passWord);
-          console.log(res.data[0].userName);
-          console.log(Keycode);
-          if (Keycode.length > 0) {
+
+          if (res.data.length > 0) {
+            Keycode.push(res.data[0].userName + " " + res.data[0].passWord);
+            console.log(res.data[0].userName);
+            console.log(Keycode);
+            console.log("working");
             API.redirect();
+            
           } else {
             alert("sorry, that username and password was not found");
           }
