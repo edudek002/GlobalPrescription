@@ -77,17 +77,12 @@ class Login extends Component {
     return (
       <div className="big">
         <Row>
-          <Col size="md-12">
-            {/* <Jumbotron /> */}
-          </Col>
-        </Row>
-        <Row>
         <div className="container fluid card">
           <form>
             <div className="form-group">
               <br />
               <br />
-              <label for="exampleInputEmail1">SIGN IN</label>
+              <label htmlFor="exampleInputEmail1">WElCOME TO GLOBAL PRESCRIPTION! SIGN IN</label>
               <br />
               <br />
               <Input

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const controller = require("../../controllers/controller");
 
 // Matches with "/api/articles"
-router.route("/")
+router.route("/landing")
     .get(controller.takeInfo)
     .post(controller.addUser);
 
