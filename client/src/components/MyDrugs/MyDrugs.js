@@ -11,6 +11,7 @@ import { Input, FormBtn } from "../SearchBar";
 import { InputMedList, TextAreaMedList, FormBtnMedList } from "../FormMedList";
 import CountryDd from "../CountryDd";
 import {MedList} from "../MedList";
+import "./MyDrugs.css";
 
 
 class MyDrugs extends Component {
@@ -26,14 +27,29 @@ class MyDrugs extends Component {
     administration : "",
     saved: [], 
     search : "",
+    showMore : {
+      color : 'black',
+      display : 'none'
+    },
+    showLess : {
+      display : 'none',
+      color : 'blue'
+    },
+    largeResultsShow : {
+      height : '100px',
+      overflow : 'hidden'
+    },
     apiSearch : "",
     activeUser : ""
+    
   }; 
   
   componentDidMount() {
     this.loadDrugs();
     this.displayUser();
   }
+
+  
 
   loadDrugs = () => {
     API.getDrugs()
@@ -119,8 +135,45 @@ class MyDrugs extends Component {
 
   handleDrugSubmit = event => {
     this.searchAPI();
-    this.displayUser();
+    this.setState({
+      showMore : {
+        color : 'yellow',
+        display : 'block'
+      }
+    })
+
+    //this.displayUser();
     }
+
+
+    handleShowMoreButton = event => {
+      this.setState({
+        largeResultsShow : {
+          height : '100%'
+        },
+        showLess : {
+          display : 'block'
+        },
+        showMore : {
+          display : 'none'
+        }
+      })
+    }
+
+      handleShowLessButton = event => {
+    this.setState({
+      showMore : {
+        color: 'blue',
+        display : 'none'
+      },
+      largeResultsShow : {
+        height : '100px',
+        overflow : 'hidden'
+      }
+      
+    })
+  }
+    
 
   handleFormSubmit = event => {
     if (this.state.drug) {
@@ -135,7 +188,8 @@ class MyDrugs extends Component {
         .catch(err => console.log(err));
     }
   };
-    
+
+
   render() {
       return (
         <div>
@@ -164,9 +218,7 @@ class MyDrugs extends Component {
           <Col size="md-4">
             <div>
               <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>
-              <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />
-              <p>{this.state.generic_name}</p>
-              <p>{this.state.administration}</p>                   
+              <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />                
             </div>
           </Col>
 
@@ -179,10 +231,14 @@ class MyDrugs extends Component {
           {/* Return answer to desplay window */}
           <Col size="md-5">
             <div>
-            <h2>Return your search</h2>
-              <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search return" />
+            <h2>Generic Name of Your Drug</h2>
+              <Input value = {this.state.generic_name} onChange={this.handleInputChange} name="search" placeholder="Search return" />
               <p>{this.state.generic_name}</p>
-              <p>{this.state.administration}</p>                   
+              <div className="largeResults" style={this.state.largeResultsShow}>{this.state.administration}
+                <br></br>
+              </div> 
+              <button className="showMore" style={this.state.showMore} onClick= {() => this.handleShowMoreButton()}>Show More</button>
+              <button className="showLess" style={this.state.showLess} onClick = {() => this.handleShowLessButton()}>Show Less</button>              
             </div>
           </Col>
         </Row>
