@@ -139,7 +139,6 @@ class MyDrugs extends Component {
     this.searchAPI();
     this.setState({
       showMore : {
-        color : 'yellow',
         display : 'block'
       }
     })
@@ -163,18 +162,21 @@ class MyDrugs extends Component {
     }
 
       handleShowLessButton = event => {
-    this.setState({
-      showMore : {
-        color: 'blue',
-        display : 'none'
-      },
-      largeResultsShow : {
-        height : '100px',
-        overflow : 'hidden'
+        this.setState({
+          showMore : {
+            color: 'blue',
+            display : 'block'
+          },
+          largeResultsShow : {
+            height : '100px',
+            overflow : 'hidden'
+          },
+          showLess : {
+            display : 'none'
+          }
+          
+        })
       }
-      
-    })
-  }
     
 
   handleFormSubmit = event => {
