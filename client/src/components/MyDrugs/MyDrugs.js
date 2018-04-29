@@ -26,11 +26,13 @@ class MyDrugs extends Component {
     administration : "",
     saved: [], 
     search : "",
-    apiSearch : ""
+    apiSearch : "",
+    activeUser : ""
   }; 
   
   componentDidMount() {
     this.loadDrugs();
+    this.displayUser();
   }
 
   loadDrugs = () => {
@@ -75,6 +77,14 @@ class MyDrugs extends Component {
       });    
   };
 
+  displayUser = () => {
+    const x = localStorage.getItem("User");
+    console.log(x);
+    this.setState({
+      activeUser : x
+    });
+  }
+
   handleSearchSubmit = event => {
         this.searchAPI();  
   };
@@ -109,6 +119,7 @@ class MyDrugs extends Component {
 
   handleDrugSubmit = event => {
     this.searchAPI();
+    this.displayUser();
     }
 
   handleFormSubmit = event => {
@@ -140,8 +151,9 @@ class MyDrugs extends Component {
         <div className="jumbotron">
         <Row>
           <Col size="md-12">
-            <Jumbotron>
-            </Jumbotron>
+            <Jumbotron
+              activeUser = {this.state.activeUser}
+            />
           </Col>
         </Row>
         </div>
