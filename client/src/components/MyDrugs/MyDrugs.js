@@ -11,7 +11,9 @@ import { Input, FormBtn } from "../SearchBar";
 import { InputMedList, TextAreaMedList, FormBtnMedList } from "../FormMedList";
 import CountryDd from "../CountryDd";
 import {MedList} from "../MedList";
+import MapBtn from "../MapBtn";
 import "./MyDrugs.css";
+
 
 
 class MyDrugs extends Component {
@@ -250,9 +252,8 @@ class MyDrugs extends Component {
         <Row>
           {/* <div className="inputmed"> */}
           <Col size="md-3">
-            <h2>Save Medication List</h2>
+            <h3>Save Medication List</h3>
             <form>
-  
               <InputMedList
                 value={this.state.drug}
                 onChange={this.handleInputChange}
@@ -297,8 +298,7 @@ class MyDrugs extends Component {
           {/* List of users medications  */}
           <Col size="md-9">
             {this.state.drugs.length ? (
-              <MedList drugs={this.state.drugs} deleteDrug={this.deleteDrug}>
-                
+              <MedList drugs={this.state.drugs} deleteDrug={this.deleteDrug}>              
               </MedList>
             ) : <h4>No Results to Display</h4>}
             
@@ -308,8 +308,9 @@ class MyDrugs extends Component {
         <br></br>
         <br></br>
       
-        
+        {/* adding map button */}
         <h3>Pharmacy Location</h3>
+        <MapBtn></MapBtn>        
         <SimpleMap></SimpleMap> 
         
         <br></br>
