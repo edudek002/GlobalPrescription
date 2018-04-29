@@ -5,12 +5,16 @@
 }
 .medlist {
   padding: 14px;
-  /* background-color: teal; */
+  /* background-image: url("../Jumbotron/sky3.png"); */
+  /* background-repeat: no-repeat; */
+  background-color: rgb(166, 208, 247);
   border-style: solid;
-  border-radius: 5px;
-  border-color: whitesmoke;
+  border-radius: 15px;
+  border-color: rgb(122, 122, 122);
 }
-
+.delete-btn{
+  color: red;
+}
 .navbar {
   position: fixed;
   top: 0;
