@@ -34,8 +34,11 @@ class Login extends Component {
         userDrugs: this.state.userDrugs
       })
         .then(res => {
+            console.log(res)
           this.setState({ userName: "", passWord: "" });
-          API.redirect();
+          const token = res.data.userName;
+          console.log(token)
+          API.redirect(token);
         })
         .catch(err => console.log(err));
     }
@@ -60,7 +63,8 @@ class Login extends Component {
             console.log(res.data[0].userName);
             console.log(Keycode);
             console.log("working");
-            API.redirect();
+            const token = res.data[0].userName;
+            API.redirect(token);
             
           } else {
             alert("sorry, that username and password was not found");

@@ -21,6 +21,8 @@ export default {
     return axios.get("/api/drugs/logged", { params: userData });
   },
   redirect: function (Token) {
+    console.log(Token);
+    localStorage.setItem("User", Token);
     
     window.location = "/drugs"
   },
