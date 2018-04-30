@@ -35,7 +35,7 @@ class MyDrugs extends Component {
     },
     showLess : {
       display : 'none',
-      color : 'blue'
+      color : 'black'
     },
     largeResultsShow : {
       height : '100px',
@@ -140,17 +140,20 @@ class MyDrugs extends Component {
     this.setState({
       showMore : {
         display : 'block'
+      },
+      largeResultsShow : {
+        display : 'block'
       }
     })
 
-    //this.displayUser();
-    }
+  }
 
 
     handleShowMoreButton = event => {
       this.setState({
         largeResultsShow : {
-          height : '100%'
+          height : '100%',
+          display : 'block'
         },
         showLess : {
           display : 'block'
@@ -164,12 +167,13 @@ class MyDrugs extends Component {
       handleShowLessButton = event => {
         this.setState({
           showMore : {
-            color: 'blue',
+            color: 'black',
             display : 'block'
           },
           largeResultsShow : {
             height : '100px',
-            overflow : 'hidden'
+            overflow : 'hidden',
+            display: 'block'
           },
           showLess : {
             display : 'none'
@@ -237,13 +241,22 @@ class MyDrugs extends Component {
             <div>
             <h2>Generic Name of Your Drug</h2>
               <Input value = {this.state.generic_name} onChange={this.handleInputChange} name="search" placeholder="Search return" />
-              <p>{this.state.generic_name}</p>
-              <div className="largeResults" style={this.state.largeResultsShow}>{this.state.administration}
-                <br></br>
-              </div> 
-              <button className="showMore" style={this.state.showMore} onClick= {() => this.handleShowMoreButton()}>Show More</button>
-              <button className="showLess" style={this.state.showLess} onClick = {() => this.handleShowLessButton()}>Show Less</button>              
+                           
             </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-12">
+            
+            <div className="largeResults" style={this.state.largeResultsShow}>
+            <p>FDA Generic Name: {this.state.generic_name}</p> 
+            {this.state.administration}
+                <br></br>
+
+              </div> 
+
+              <button className="showMore" style={this.state.showMore} onClick= {() => this.handleShowMoreButton()}>Show More</button>
+              <button className="showLess" style={this.state.showLess} onClick = {() => this.handleShowLessButton()}>Show Less</button>
           </Col>
         </Row>
         <br></br>

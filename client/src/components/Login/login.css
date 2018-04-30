@@ -9,6 +9,6 @@
 }
 .big {
     background-image: url("../Jumbotron/sky3.png");
-    height: 700px;
+    height: 100vh;
     background-size: cover;
 }
