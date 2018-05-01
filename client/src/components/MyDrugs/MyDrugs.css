@@ -2,13 +2,13 @@
 	border-style: solid;
 	border-width: 1px;
 	border-color: lightgrey;
-	background-color: lightgrey;
+	background-color: white;
 	display: none;
 	padding: 10px;
 	margin-bottom: 10px;
 	height: 110px;
 	overflow: hidden;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 	border-radius: 15px;
 	font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 	font-size: 18px;
@@ -20,6 +20,7 @@
 	border-width: 1px;
 	margin-top: 30px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-image: linear-gradient(white,lightgrey);
 }
 
 .showLess {
@@ -28,4 +29,13 @@
 	border-width: 1px;
 	margin-top: 30px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
+	background-image: linear-gradient(white,lightgrey);
+}
+
+.submit {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
+}
+.submit:after {
+	background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+	
 }
