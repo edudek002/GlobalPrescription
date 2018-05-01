@@ -35,7 +35,10 @@
 .submit {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
 }
-.submit:after {
-	background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
-	
+
+.largeResults:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
+}
+.showMore:hover, .showLess:hover {
+	background-image: linear-gradient(grey,lightgrey);
 }
