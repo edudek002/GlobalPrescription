@@ -38,7 +38,7 @@ class MyDrugs extends Component {
       color : 'black'
     },
     largeResultsShow : {
-      height : '100px',
+      height : '175px',
       overflow : 'hidden'
     },
     apiSearch : "",
@@ -171,7 +171,7 @@ class MyDrugs extends Component {
             display : 'block'
           },
           largeResultsShow : {
-            height : '100px',
+            height : '175px',
             overflow : 'hidden',
             display: 'block'
           },
@@ -249,9 +249,8 @@ class MyDrugs extends Component {
           <Col size="md-12">
             
             <div className="largeResults" style={this.state.largeResultsShow}>
-            <p>FDA Generic Name: {this.state.generic_name}</p> 
-            {this.state.administration}
-                <br></br>
+            <p className="DrugLabel">FDA Generic Name: {this.state.generic_name}</p> 
+            <p className="DrugInfo">{this.state.administration}</p>
 
               </div> 
 
