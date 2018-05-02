@@ -1,5 +1,17 @@
 
-
-#examplesearch {
-	width: 500px;
+#examplesearch{
+  display: block;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  width: 600px;
 }
+
+.mapbtn1{
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100px;
+}
+
