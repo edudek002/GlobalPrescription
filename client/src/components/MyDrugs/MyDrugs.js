@@ -249,8 +249,8 @@ class MyDrugs extends Component {
           <Col size="md-12">
             
             <div className="largeResults" style={this.state.largeResultsShow}>
-            <p className="DrugLabel">FDA Generic Name: {this.state.generic_name}</p> 
-            <p className="DrugLocation">Region This Drug Can Be Found: {this.state.country}</p>
+            <p className="DrugLabel">FDA Generic Name: <span id="generic">{this.state.generic_name}</span></p> 
+            <p className="DrugLocation">Region This Drug Can Be Found: <span id="countryLoc">{this.state.country}</span></p>
             <p className="DrugInfo">{this.state.administration}</p>
 
 
