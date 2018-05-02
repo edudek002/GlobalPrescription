@@ -207,7 +207,7 @@ class MyDrugs extends Component {
           </Row>
           </Col>
           
-      {/* <Container fluid> */}
+        {/* <Container fluid> */}
 
         {/* Main header of app */}
         <div className="jumbotron">
@@ -324,7 +324,7 @@ class MyDrugs extends Component {
         <br></br>
       
         {/* adding map button */}
-        <h3>Pharmacy Location</h3>
+        {/* <h3>Pharmacy Location</h3> */}
         <MapBtn></MapBtn>        
         <SimpleMap></SimpleMap> 
         
@@ -356,9 +356,10 @@ class MyDrugs extends Component {
             )}
           </Col>
         </Row>
-      {/* </Container> */}
+        {/* </Container> */}
+        </div>
       </div>
-      </div>
+      
       )
     };
   } 
