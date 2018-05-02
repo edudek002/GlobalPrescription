@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import DeleteBtn from "../DeleteBtn";
-import SimpleMap from "../Map";
+import MapContainer from "../Map";
 import Jumbotron from "../Jumbotron";
 import Nav from "../Nav";
 import { Link } from "react-router-dom";
@@ -190,7 +190,6 @@ class MyDrugs extends Component {
     
 
   handleFormSubmit = event => {
-    if (this.state.drug) {
       API.saveDrug({
         drug: this.state.drug,
         active_ingredient: this.state.active_ingredient,
@@ -200,7 +199,6 @@ class MyDrugs extends Component {
       })
         .then(res => this.loadDrugs())
         .catch(err => console.log(err));
-    }
   };
 
 
@@ -252,6 +250,7 @@ class MyDrugs extends Component {
             <p className="DrugLabel">FDA Generic Name: <span id="generic">{this.state.generic_name}</span></p> 
             <p className="DrugLocation">Region This Drug Can Be Found: <span id="countryLoc">{this.state.country}</span></p>
             <p className="DrugInfo">{this.state.administration}</p>
+            <p>Test</p>
 
 
               </div> 
@@ -302,7 +301,6 @@ class MyDrugs extends Component {
             />
               
               <FormBtnMedList
-                disabled={!(this.state.drug)}
                 onClick={this.handleFormSubmit}
               >
                 Submit
@@ -327,7 +325,7 @@ class MyDrugs extends Component {
         {/* adding map button */}
         {/* <h3>Pharmacy Location</h3> */}
         <MapBtn></MapBtn>        
-        <SimpleMap></SimpleMap> 
+        <MapContainer></MapContainer> 
         
         <br></br>
         <br></br>
