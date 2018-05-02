@@ -1,2 +1,3 @@
 
-export { default } from "./SimpleMap";
+
+export { default } from "./MapContainer";

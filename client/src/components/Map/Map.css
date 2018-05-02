@@ -1,6 +1,5 @@
-#map {
-    height: 400px;
+.map {
+    height: 200px;
     width: 100%;
     background: lightblue;
-    /* border-style: solid; */
   }

@@ -39,6 +39,7 @@ export default {
   },
   // Saves a drug to the database
   saveDrug: function(drugData) {
+    console.log(drugData);
     return axios.post("/api/drugs", drugData);
   },
   searchDrug: function(query){
