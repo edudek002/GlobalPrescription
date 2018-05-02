@@ -28,6 +28,7 @@ class MyDrugs extends Component {
     generic_name : "",
     administration : "",
     saved: [], 
+    country : "",
     search : "",
     showMore : {
       color : 'black',
@@ -38,7 +39,7 @@ class MyDrugs extends Component {
       color : 'black'
     },
     largeResultsShow : {
-      height : '100px',
+      height : '245px',
       overflow : 'hidden'
     },
     apiSearch : "",
@@ -64,7 +65,8 @@ class MyDrugs extends Component {
   searchAPI = () => {
     let search = this.state.search
     let newSearch = this.state.apiSearch
-    console.log(newSearch);
+    
+
     
     // FIRST SEARCH OUR DATABASE
     API.getDrugs()
@@ -73,9 +75,13 @@ class MyDrugs extends Component {
           if (search === res.data[i].drug) {
             console.log(res.data[i].active_ingredient)
             this.setState({
-              apiSearch : res.data[i].active_ingredient
+              apiSearch : res.data[i].active_ingredient,
+              country : res.data[i].country
             })
+            console.log(this.state.country);
             newSearch = res.data[i].active_ingredient
+            let searchReplaced = newSearch.split(' ').join('+');
+            console.log(searchReplaced);
             
             //THEN OPEN FDA API CALLL
             const query = "?search=" + newSearch
@@ -171,7 +177,7 @@ class MyDrugs extends Component {
             display : 'block'
           },
           largeResultsShow : {
-            height : '100px',
+            height : '245px',
             overflow : 'hidden',
             display: 'block'
           },
@@ -223,35 +229,30 @@ class MyDrugs extends Component {
         {/* User enter point for search */}
         <div className="container">
         <Row>
-          <Col size="md-4">
-            <div>
-              <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>
+          <Col size="md-8">
+              <h2>Search for Drug</h2>
               <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />                
-            </div>
           </Col>
+        </Row>
+        <Row>
 
           {/* Choose Country to search */}
           <Col size="md-3">
-            <h2>Select Country</h2>
-            <CountryDd></CountryDd>              
+            <h2></h2>
+            <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>              
           </Col>
 
           {/* Return answer to desplay window */}
-          <Col size="md-5">
-            <div>
-            <h2>Generic Name of Your Drug</h2>
-              <Input value = {this.state.generic_name} onChange={this.handleInputChange} name="search" placeholder="Search return" />
-                           
-            </div>
-          </Col>
+          
         </Row>
         <Row>
           <Col size="md-12">
             
             <div className="largeResults" style={this.state.largeResultsShow}>
-            <p>FDA Generic Name: {this.state.generic_name}</p> 
-            {this.state.administration}
-                <br></br>
+            <p className="DrugLabel">FDA Generic Name: {this.state.generic_name}</p> 
+            <p className="DrugLocation">Region This Drug Can Be Found: {this.state.country}</p>
+            <p className="DrugInfo">{this.state.administration}</p>
+
 
               </div> 
 

@@ -2,13 +2,13 @@
 	border-style: solid;
 	border-width: 1px;
 	border-color: lightgrey;
-	background-color: lightgrey;
+	background-color: white;
 	display: none;
-	padding: 10px;
+	/*padding: 10px;*/
 	margin-bottom: 10px;
-	height: 110px;
+	height: 245px;
 	overflow: hidden;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 	border-radius: 15px;
 	font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 	font-size: 18px;
@@ -20,6 +20,7 @@
 	border-width: 1px;
 	margin-top: 30px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-image: linear-gradient(white,lightgrey);
 }
 
 .showLess {
@@ -28,4 +29,26 @@
 	border-width: 1px;
 	margin-top: 30px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
+	background-image: linear-gradient(white,lightgrey);
+}
+
+.submit {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.largeResults:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
+}
+.showMore:hover, .showLess:hover {
+	background-image: linear-gradient(grey,lightgrey);
+}
+.DrugLabel {
+	background-color: lightgrey;
+	padding: 15px;
+}
+.DrugInfo, .DrugLocation {
+	padding: 15px;
+}
+h2 {
+	margin-bottom: 15px;
 }
