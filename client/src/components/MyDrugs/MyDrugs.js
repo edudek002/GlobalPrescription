@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import DeleteBtn from "../DeleteBtn";
-import MapContainer from "../Map";
+//import MapContainer from "../Map";
+import MapWrapper from "../Map";
 import Jumbotron from "../Jumbotron";
 import Nav from "../Nav";
 import { Link } from "react-router-dom";
@@ -321,17 +322,20 @@ class MyDrugs extends Component {
         </div>
         <br></br>
         <br></br>
-      
+        <h3>Pharmacy Location</h3>
+        <h4>Enter a city name and then click on the map to see the list of pharmacies.</h4>
+
         {/* adding map button */}
-        {/* <h3>Pharmacy Location</h3> */}
-        <MapBtn></MapBtn>        
-        <MapContainer></MapContainer> 
+        {/* <MapBtn></MapBtn> */}
+               
+        {/* <MapContainer></MapContainer> */}
+        <MapWrapper></MapWrapper> 
         
         <br></br>
         <br></br>
     
 
-        <Row>
+        {/* <Row>
           <Col size="md-6 sm-12">
             
             <h2>Medicine I Take</h2>
@@ -354,7 +358,7 @@ class MyDrugs extends Component {
               <h3>No Result to Display</h3>
             )}
           </Col>
-        </Row>
+        </Row> */}
         {/* </Container> */}
         </div>
       </div>

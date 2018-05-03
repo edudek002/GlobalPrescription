@@ -1,6 +1,9 @@
-  import React from "react";
+  import React from "react"
+  //import MapWrapper from "./MapAutocomplete";
   import {Map, InfoWindow, Marker, onReady, GoogleApiWrapper} from 'google-maps-react';
   import "./Map.css";
+  import styles from './autocomplete.module.css';
+  
 
   const Listing = ({ places }) => (
     <ul>{places.map(p => <li key={p.id}>{p.name} ________Address: {p.vicinity}, {p.geometry.location.lat}</li>)}</ul>
@@ -8,7 +11,7 @@
    
 class MapContainer extends React.Component {
 
-  state = {
+  state = {                                                  
           showingInfoWindow: false,
           activeMarker: {},
           //mapCenter: {lat: -0.717178, lng: 36.431026}, 
@@ -19,6 +22,41 @@ class MapContainer extends React.Component {
           places: [], 
           myLat: ""      
   }
+  // ==========From Autocomplete ============
+  // componentDidMount() {
+  //   this.renderAutoComplete();
+  // }
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props !== prevProps.map) this.renderAutoComplete();
+  // }
+
+  // onSubmit(e) {
+  //   e.preventDefault();
+  // }
+
+  // renderAutoComplete() {
+  //   const { google, map } = this.props;
+
+  //   if (!google || !map) return;
+
+  //   const autocomplete = new google.maps.places.Autocomplete(this.autocomplete);
+  //   autocomplete.bindTo('bounds', map);
+
+  //   autocomplete.addListener('place_changed', () => {
+  //     const place = autocomplete.getPlace();
+
+  //     if (!place.geometry) return;
+
+  //     if (place.geometry.viewport) map.fitBounds(place.geometry.viewport);
+  //     else {
+  //       map.setCenter(place.geometry.location);
+  //       map.setZoom(17);
+  //     }
+
+  //     this.setState({ position: place.geometry.location });
+  //   });
+  // }
 
   
 
@@ -70,6 +108,10 @@ class MapContainer extends React.Component {
   };
 
   render() {
+    //======= from Autocomplete=======
+    //const { position } = this.state;
+    //================================
+
     console.log("This state activeMarker is", this.state.activeMarker)
     console.log("This state mapCenter is", this.state.mapCenter)
     console.log("This state myLoc is", this.state.myLoc)
@@ -80,6 +122,28 @@ class MapContainer extends React.Component {
 
     //console.log("this.props ", this.props.google.maps.places.PlacesService.length)
     return (
+    //====from Autocomplete==============
+      // <div className={styles.flexWrapper}>
+      //   <div className={styles.left}>
+      //     <form onSubmit={this.onSubmit}>
+      //       <input
+      //         placeholder="Enter a location"
+      //         ref={ref => (this.autocomplete = ref)}
+      //         type="text"
+      //       />
+
+      //       <input className={styles.button} type="submit" value="Go" />
+      //     </form>
+
+      //     <div>
+      //       <div>Lat: {position && position.lat()}</div>
+      //       <div>Lng: {position && position.lng()}</div>
+      //     </div>
+      //   </div>
+
+      //   <div className={styles.right}>
+        
+
       <Map className="map" 
         google={this.props.google} 
         zoom={14}
@@ -89,18 +153,29 @@ class MapContainer extends React.Component {
         const myLoc={this.state.mapCenter}
         onClick={this.onMapClicked}
         onReady={this.onMapReady}
+
+        //===from Autocomplete==========
+        // {...this.props}
+        //     center={position}
+        //     centerAroundCurrentLocation={false}
+        //     containerStyle={{
+        //       height: '100vh',
+        //       position: 'relative',
+        //       width: '100%'
+        //     }}
+        //==================================
         >
-        
+        {/* <Marker position={position}/> */}
         <Listing places={this.state.places} />
 
-        <Marker onClick={this.onMarkerClick}
+        {/* <Marker onClick={this.onMarkerClick}
                 places={this.state.places}
                 name={"first marker"}
                 position={this.state.mapCenter} />
 
         <Marker onClick={this.onMarkerClick}
                 name={'Second Marker'}
-                position={{lat: 44.85477, lng: -93.258000}} />
+                position={{lat: 44.85477, lng: -93.258000}} /> */}
  
         <InfoWindow 
           marker={this.state.activeMarker}
@@ -111,6 +186,10 @@ class MapContainer extends React.Component {
             </div>} */}
         </InfoWindow>
       </Map>
+    //===================
+    //   </div>
+    // </div>
+    // =================    
     );
   }
 }
