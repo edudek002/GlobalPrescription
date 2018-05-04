@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import DeleteBtn from "../DeleteBtn";
-import MapContainer from "../Map";
+import MapAutocomplete from "../Map";
 import MapWrapper from "../Map";
 import Jumbotron from "../Jumbotron";
 import Nav from "../Nav";
@@ -355,7 +355,12 @@ class MyDrugs extends Component {
         {/* <MapBtn></MapBtn> */}
                
         {/* <MapContainer></MapContainer> */}
-        <MapWrapper></MapWrapper> 
+        <Row>
+          <Col size="md-12">
+        
+                <MapWrapper></MapWrapper> 
+            </Col>
+        </Row>
         
         <br></br>
         <br></br>
