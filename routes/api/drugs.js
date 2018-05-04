@@ -6,7 +6,7 @@ const controller = require("../../controllers/controller");
 
 
 router.route("/")
-  .get(controller.findAll)
+  .get(controller.findAllDrugs)
   .post(controller.create)
   .post(controller.addUser);
 
@@ -27,11 +27,11 @@ router.route("/logged")
   .get(controller.displayUser);  
 
 //matches
-router
-	.route("/search")
-	.get(controller.findADrug);
+router.route("/search")
+  .put(controller.userUpdate);
 
-
+router.route("/grabUser")
+    .get(controller.findAll);
 // Matches with "/api/drugs/:id"
 router
   .route("/:id")
