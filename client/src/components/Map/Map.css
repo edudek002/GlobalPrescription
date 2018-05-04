@@ -1,5 +1,7 @@
 .map {
-    /* height: 200px;
-    width: 100%;
-    background: lightblue; */
-  }
+  /* background: blue; */
+  /* display: flex; */
+}
+.something div {
+  display: flex;
+}
