@@ -205,7 +205,7 @@ class MyDrugs extends Component {
 
   render() {
       return (
-        <div>
+        <div className="backimage">
           <Col size="md-12">
           <Row>
           <Nav></Nav>
