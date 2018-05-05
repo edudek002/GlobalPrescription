@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-/* .map {
-    height: 200px;
-    width: 100%;
-    background: lightblue;
-  } */
-=======
 .map {
   /* background: blue; */
   /* display: flex; */
@@ -12,4 +5,3 @@
 .something div {
   display: flex;
 }
->>>>>>> master
