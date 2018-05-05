@@ -1,0 +1,7 @@
+.navbar-fixed-bottom {
+    bottom: -640px;
+    background-color: teal;
+    position: relative;
+    height: 250px;
+    text-align: center;
+}

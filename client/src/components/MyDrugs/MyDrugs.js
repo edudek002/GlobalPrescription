@@ -14,6 +14,8 @@ import CountryDd from "../CountryDd";
 import {MedList} from "../MedList";
 import MapBtn from "../MapBtn";
 import "./MyDrugs.css";
+import Footer from "../Navbar";
+import DemoCarousel from "../Carousel";
 
 
 
@@ -271,6 +273,11 @@ class MyDrugs extends Component {
             </Col>
           </Row>
         </div>
+        <Row>
+            <Col size="md-12">
+            <DemoCarousel></DemoCarousel>
+            </Col>
+        </Row>
 
         {/* User enter point for search */}
         <div className="container">
@@ -420,6 +427,7 @@ class MyDrugs extends Component {
         </Row> */}
         {/* </Container> */}
         </div>
+        <Footer />
       </div>
       
       )

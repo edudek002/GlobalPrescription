@@ -23,3 +23,6 @@
   /* overflow: hidden;
   background-color: rgb(216, 29, 29); */
 }
+.collapse .navbar-collapse{
+  text-align: right;
+}
