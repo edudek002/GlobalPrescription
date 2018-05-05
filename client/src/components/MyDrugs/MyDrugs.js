@@ -75,7 +75,18 @@ class MyDrugs extends Component {
     let search = this.state.search
     let newSearch = this.state.apiSearch
     
-
+    const query = "?search=" + search;
+    console.log("query: " + query);
+    API.searchDrug(query)
+      .then(res => {
+        console.log(res);
+        this.setState({
+          generic_name : res.data.results[0].openfda.generic_name,
+          country : "USA",
+          administration : res.data.results[0].dosage_and_administration
+        })
+      })
+    .catch(err => console.log(err));
     
     // FIRST SEARCH OUR DATABASE
     API.getDbDrugs()
@@ -105,6 +116,9 @@ class MyDrugs extends Component {
                   })
                 })
               .catch(err => console.log(err));
+            }
+            else {
+              console.log("No Results Found");
             }
           }
       });    
@@ -217,17 +231,6 @@ class MyDrugs extends Component {
       }
     
 
-  // handleFormSubmit = event => {
-  //     API.saveDrug({
-  //       drug: this.state.drug,
-  //       active_ingredient: this.state.active_ingredient,
-  //       dosage: this.state.dosage,
-  //       frequency: this.state.frequency,
-  //       note: this.state.note
-  //     })
-  //       .then(res => this.loadDrugs())
-  //       .catch(err => console.log(err));
-  // };
 
   render() {
       return (
@@ -277,7 +280,6 @@ class MyDrugs extends Component {
             <p className="DrugLabel">FDA Generic Name: <span id="generic">{this.state.generic_name}</span></p> 
             <p className="DrugLocation">Region This Drug Can Be Found: <span id="countryLoc">{this.state.country}</span></p>
             <p className="DrugInfo">{this.state.administration}</p>
-            <p>Test</p>
 
 
               </div> 
