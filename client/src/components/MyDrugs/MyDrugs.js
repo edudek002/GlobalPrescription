@@ -263,24 +263,24 @@ class MyDrugs extends Component {
 
         {/* Main header of app */}
         <div className="jumbotron">
-        <Row>
-          <Col size="md-12">
-            <Jumbotron
-              activeUser = {this.state.activeUser}
-            />
-          </Col>
-        </Row>
+          <Row>
+            <Col size="md-12">
+              <Jumbotron
+                activeUser = {this.state.activeUser}
+              />
+            </Col>
+          </Row>
         </div>
 
         {/* User enter point for search */}
         <div className="container">
-        <Row>
-          <Col size="md-8">
-              <h2>Search for Drug</h2>
-              <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />                
-          </Col>
-        </Row>
-        <Row>
+          <Row>
+            <Col size="md-8">
+                <h2>Search for Drug</h2>
+                <Input value = {this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />                
+            </Col>
+          </Row>
+          <Row>
 
           {/* Choose Country to search */}
           <Col size="md-3">
@@ -321,82 +321,79 @@ class MyDrugs extends Component {
         <br></br>
         <br></br>
         
-        <div className="medlist">
-        <Row>
-          {/* <div className="inputmed"> */}
-          <Col size="md-3">
-            <h3>Save Medication List</h3>
-            <form>
-              <InputMedList
-                value={this.state.drug}
+          <div className="medlist">
+            <Row>
+            {/* <div className="inputmed"> */}
+            <Col size="md-3">
+              <h3>Save Medication List</h3>
+              <form>
+                <InputMedList
+                  value={this.state.drug}
+                  onChange={this.handleInputChange}
+                  name="drug"
+                  placeholder="Name of your medicine (required)"
+                />
+                <InputMedList
+                  value={this.state.active_ingredient}
+                  onChange={this.handleInputChange}
+                  name="active_ingredient"
+                  placeholder="Active Ingredient (required)"
+                />
+                <InputMedList
+                  value={this.state.dosage}
+                  onChange={this.handleInputChange}
+                  name="dosage"
+                  placeholder="Dosage"
+                />
+                <InputMedList
+                  value={this.state.frequency}
+                  onChange={this.handleInputChange}
+                  name="frequency"
+                  placeholder="Frequency"
+                />
+                <TextAreaMedList
+                value={this.state.note}
                 onChange={this.handleInputChange}
-                name="drug"
-                placeholder="Name of your medicine (required)"
+                name="note"
+                placeholder="Note"
               />
-              <InputMedList
-                value={this.state.active_ingredient}
-                onChange={this.handleInputChange}
-                name="active_ingredient"
-                placeholder="Active Ingredient (required)"
-              />
-              <InputMedList
-                value={this.state.dosage}
-                onChange={this.handleInputChange}
-                name="dosage"
-                placeholder="Dosage"
-              />
-              <InputMedList
-                value={this.state.frequency}
-                onChange={this.handleInputChange}
-                name="frequency"
-                placeholder="Frequency"
-              />
-              <TextAreaMedList
-              value={this.state.note}
-              onChange={this.handleInputChange}
-              name="note"
-              placeholder="Note"
-            />
-              
-              <FormBtnMedList
-                onClick={this.handleFormSubmit}
-              >
-                Submit
-              </FormBtnMedList>
-            </form>
-          </Col>
-          {/* </div> */}
+                
+                <FormBtnMedList
+                  onClick={this.handleFormSubmit}
+                >
+                  Submit
+                </FormBtnMedList>
+              </form>
+              </Col>
+              {/* </div> */}
 
-          {/* List of users medications  */}
-          <Col size="md-9">
-            {this.state.drugs.length ? (
-              <MedList drugs={this.state.drugs} deleteDrug={this.deleteDrug}>              
-              </MedList>
-            ) : <h4>No Results to Display</h4>}
-            
-          </Col>
-        </Row>
-        </div>
-        <br></br>
-        <br></br>
-        <h3>Pharmacy Location</h3>
-        <h4>Enter a city name and then click on the map to see the list of pharmacies.</h4>
+              {/* List of users medications  */}
+              <Col size="md-9">
+                {this.state.drugs.length ? (
+                  <MedList drugs={this.state.drugs} deleteDrug={this.deleteDrug}>              
+                  </MedList>
+                ) : <h4>No Results to Display</h4>}             
+              </Col>
+            </Row>
+          </div>
+          <br></br>
+          <br></br>
+          
+            <div>
+              <Row>   
+                <h3>Pharmacy Locations</h3>
+              </Row>
+              <Row>
+                <h4>Enter a city name and then click on the map to see the list of pharmacies.</h4>
+                <Col size="md-12">        
+                  <MapWrapper></MapWrapper> 
+                </Col>               
+              </Row>
+            </div>
 
-        {/* adding map button */}
-        {/* <MapBtn></MapBtn> */}
-               
-        {/* <MapContainer></MapContainer> */}
-        <Row>
-          <Col size="md-12">
-        
-                <MapWrapper></MapWrapper> 
-            </Col>
-        </Row>
-        
         <br></br>
         <br></br>
     
-
         {/* <Row>
           <Col size="md-6 sm-12">
             

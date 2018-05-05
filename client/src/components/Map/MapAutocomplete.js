@@ -101,7 +101,7 @@ class Contents extends React.Component {
               type="text"
             />
 
-            <input className={styles.button} type="submit" value="Go" />
+            {/* <input className={styles.button} type="submit" value="Go" /> */}
           </form>
 
           {/* <div>
