@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import DeleteBtn from "../DeleteBtn";
-//import MapContainer from "../Map";
+import MapAutocomplete from "../Map";
 import MapWrapper from "../Map";
 import Jumbotron from "../Jumbotron";
 import Nav from "../Nav";
@@ -49,28 +49,36 @@ class MyDrugs extends Component {
   }; 
   
   componentDidMount() {
-    this.loadDrugs();
     this.displayUser();
+    this.loadDrugs();
+    
   }
 
   
 
   loadDrugs = () => {
-    API.getDrugs()
-      .then(res => 
+
+    const x = localStorage.getItem("User");
+    console.log(x);
+    API.getDrugs(x)
+      .then(res => {
+        console.log(res);
+        this.setState({drugs : res.data[0].userDrugs, drug : "", active_ingredient : "", dosage : ""})
+      }
       
-        this.setState({drugs : res.data, drug : "", active_ingredient : "", dosage : ""})
+        
       )
       .catch(err => console.log("Error from loadDrugs ", err));
   };
   searchAPI = () => {
+
     let search = this.state.search
     let newSearch = this.state.apiSearch
     
 
     
     // FIRST SEARCH OUR DATABASE
-    API.getDrugs()
+    API.getDbDrugs()
       .then(res => {
         for (let i = 0; i <res.data.length; i++) {
           if (search === res.data[i].drug) {
@@ -129,20 +137,39 @@ class MyDrugs extends Component {
   };
 
   handleFormSubmit = event => {
-    if (this.state.drug) {
-      API.saveDrug({
-        drug: this.state.drug,
-        active_ingredient: this.state.active_ingredient,
-        dosage: this.state.dosage,
-        frequency: this.state.frequency,
-        note: this.state.note
-      })
-        .then(res => this.loadDrugs())
+    event.preventDefault();
+    // if (this.state.drug) {
+      const drugsToSend = {
+        drug : this.state.drug,
+        active_ingredient : this.state.active_ingredient,
+        dosage : this.state.dosage,
+        frequency : this.state.frequency,
+        note : this.state.note,
+        user : this.state.activeUser
+      }
+
+
+      // API.saveDrug({
+      //   drug: this.state.drug,
+      //   active_ingredient: this.state.active_ingredient,
+      //   dosage: this.state.dosage,
+      //   frequency: this.state.frequency,
+      //   note: this.state.note
+      // })
+      //   .then(res => this.loadDrugs())
+      //   .catch(err => console.log(err));
+
+      API.testUpdate(drugsToSend)
+        .then(res => {
+          console.log(res);
+          this.loadDrugs();
+        })
         .catch(err => console.log(err));
-    }
+    // }
   };
 
   handleDrugSubmit = event => {
+
     this.searchAPI();
     this.setState({
       showMore : {
@@ -190,18 +217,17 @@ class MyDrugs extends Component {
       }
     
 
-  handleFormSubmit = event => {
-      API.saveDrug({
-        drug: this.state.drug,
-        active_ingredient: this.state.active_ingredient,
-        dosage: this.state.dosage,
-        frequency: this.state.frequency,
-        note: this.state.note
-      })
-        .then(res => this.loadDrugs())
-        .catch(err => console.log(err));
-  };
-
+  // handleFormSubmit = event => {
+  //     API.saveDrug({
+  //       drug: this.state.drug,
+  //       active_ingredient: this.state.active_ingredient,
+  //       dosage: this.state.dosage,
+  //       frequency: this.state.frequency,
+  //       note: this.state.note
+  //     })
+  //       .then(res => this.loadDrugs())
+  //       .catch(err => console.log(err));
+  // };
 
   render() {
       return (
@@ -329,7 +355,12 @@ class MyDrugs extends Component {
         {/* <MapBtn></MapBtn> */}
                
         {/* <MapContainer></MapContainer> */}
-        <MapWrapper></MapWrapper> 
+        <Row>
+          <Col size="md-12">
+        
+                <MapWrapper></MapWrapper> 
+            </Col>
+        </Row>
         
         <br></br>
         <br></br>

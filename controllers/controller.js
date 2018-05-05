@@ -47,10 +47,32 @@ module.exports = {
     console.log(Token);
     console.log(req.query)
   },
+
+  userUpdate: function(req, res) {
+    console.log(req);
+    var query   = { userName: req.body.user }; 
+    var update  = { userDrugs: req.body }; 
+    var options = { new: true }; 
+    db.User
+      .findOneAndUpdate(query, {$push : update}, options)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   // redirect: function (Token) {
   //   window.location = "http://localhost:3000/drugs"
   // },
+
+  findAllDrugs: function(req, res) {
+    db.Drug
+      .find()
+
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   displayUser: function (req, res) {
+    
     db.User
       .find(req.query)
       .then(dbModel => res.json(dbModel))
@@ -61,8 +83,11 @@ module.exports = {
   },
 
   findAll: function(req, res) {
-    db.Drug
-      .find()
+    console.log(req.query[0]);
+    var query = req.query[0];
+    console.log(query);
+    db.User
+      .find({ userName : query})
 
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))

@@ -26,8 +26,15 @@ export default {
     
     window.location = "/drugs"
   },
-  getDrugs: function() {
-    return axios.get("/api/drugs");
+  getDrugs: function(data) {
+    console.log(data);
+    return axios.get("/api/drugs/grabUser/", {
+      params : data }
+      );
+  },
+
+  getDbDrugs : function() {
+    return axios.get("/api/drugs")
   },
   // Gets the drug with the given id
   getDrug: function(id) {
@@ -46,8 +53,9 @@ export default {
     console.log("My full query " + BASEURL + query); 
     return axios.get(BASEURL + query);
   }, 
-  drugSearch : function(v) {
-    return axios.get("/api/drugs/search")
+  testUpdate : function(drug) {
+    console.log(drug);
+    return axios.put("/api/drugs/search/", drug)
   }
 
 };
