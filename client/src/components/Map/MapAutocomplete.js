@@ -128,7 +128,7 @@ class Contents extends React.Component {
             google={this.props.google}
             // ====================================== 
             zoom={14}
-            style={{width: '100%', height: '600px', position: 'relative'}}
+            style={{width: '600px', height: '600px', position: 'relative'}}
             initialCenter={{lat: 44.986656, lng: -93.258133}}
             //center={this.state.mapCenter}
             //onClick={this.onMapClicked}

@@ -1,42 +1,44 @@
- /* .flexWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.flexWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
-  .left {
+.left {
     flex: 1;
     order: 1;
     padding: 20px;
-  }
+} 
 
-  .right {
+.right {
     flex: 1;
     order: 2;
-  }
+} 
 
-  form {
+form {
     margin: 20px auto;
     position: relative;
     height: 30px;
+}
 
-    input {
-      height: 100%;
-      font-size: 1.4em;
-    }
+input {
+  height: 100%;
+  font-size: 1.4em;
+}
 
-    input[type=text] {
-      width: 80%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    input[type=submit] {
-      width: 20%;
-      position: absolute;
-      right: 0;
-      top: 2px;
-      border: 1px solid #ddd;
-      background: #FFF;
-    }
-  }
-}  */
+input[type=text] {
+  width: 30%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid rgb(0, 0, 0);
+}
+
+input[type=submit] {
+  width: 10%;
+  position: absolute;
+  left: 570px;
+  top: 0;
+  border: 2px solid rgb(0, 0, 0);
+  background: rgb(135, 138, 180);
+}
