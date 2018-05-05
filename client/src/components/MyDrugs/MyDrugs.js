@@ -21,10 +21,12 @@ class MyDrugs extends Component {
   state = {
     drugs: [],
     drug: "",
+    internationalDrug : "",
     active_ingredient: "",
     dosage: "",
     frequency: "",
     note: "",
+    search2 : "",
     deleted: false,
     generic_name : "",
     administration : "",
@@ -40,6 +42,10 @@ class MyDrugs extends Component {
       color : 'black'
     },
     largeResultsShow : {
+      height : '245px',
+      overflow : 'hidden'
+    },
+    smallResultsShow : {
       height : '245px',
       overflow : 'hidden'
     },
@@ -73,18 +79,33 @@ class MyDrugs extends Component {
   searchAPI = () => {
 
     let search = this.state.search
+    let displaySearch = this.state.search
     let newSearch = this.state.apiSearch
     
-
+    const query = "?search=" + search;
+    console.log("query: " + query);
+    API.searchDrug(query)
+      .then(res => {
+        console.log(res);
+        this.setState({
+          search2 : displaySearch,
+          generic_name : res.data.results[0].openfda.generic_name,
+          country : "USA",
+          internationalDrug : "NA",
+          administration : res.data.results[0].dosage_and_administration
+        })
+      })
+    .catch(err => console.log(err));
     
     // FIRST SEARCH OUR DATABASE
     API.getDbDrugs()
       .then(res => {
         for (let i = 0; i <res.data.length; i++) {
-          if (search === res.data[i].drug) {
-            console.log(res.data[i].active_ingredient)
+          if (search === res.data[i].active_ingredient) {
+            console.log(res.data[i].drug)
             this.setState({
               apiSearch : res.data[i].active_ingredient,
+              internationalDrug : res.data[i].drug,
               country : res.data[i].country
             })
             console.log(this.state.country);
@@ -106,6 +127,9 @@ class MyDrugs extends Component {
                 })
               .catch(err => console.log(err));
             }
+            else {
+              console.log("No Results Found");
+            }
           }
       });    
   };
@@ -123,6 +147,8 @@ class MyDrugs extends Component {
   };
   
   deleteDrug = id => {
+    var x = id;
+    console.log(x);
     API.deleteDrug(id)
       .then(res => this.loadDrugs())
       .catch(err => console.log(err));
@@ -177,6 +203,12 @@ class MyDrugs extends Component {
       },
       largeResultsShow : {
         display : 'block'
+      },
+      smallResultsShow : {
+        display : 'block'
+      },
+      showLess : {
+        display : 'none'
       }
     })
 
@@ -217,17 +249,6 @@ class MyDrugs extends Component {
       }
     
 
-  // handleFormSubmit = event => {
-  //     API.saveDrug({
-  //       drug: this.state.drug,
-  //       active_ingredient: this.state.active_ingredient,
-  //       dosage: this.state.dosage,
-  //       frequency: this.state.frequency,
-  //       note: this.state.note
-  //     })
-  //       .then(res => this.loadDrugs())
-  //       .catch(err => console.log(err));
-  // };
 
   render() {
       return (
@@ -262,27 +283,43 @@ class MyDrugs extends Component {
           <Row>
 
           {/* Choose Country to search */}
-            <Col size="md-3">
-              <h2></h2>
-              <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>              
-            </Col>
-          {/* Return answer to desplay window */}         
-          </Row>
-          <Row>
-            <Col size="md-12">              
-              <div className="largeResults" style={this.state.largeResultsShow}>
-                <p className="DrugLabel">FDA Generic Name: <span id="generic">{this.state.generic_name}</span></p> 
-                <p className="DrugLocation">Region This Drug Can Be Found: <span id="countryLoc">{this.state.country}</span></p>
-                <p className="DrugInfo">{this.state.administration}</p>
-                <p>Test</p>
-              </div> 
-                <button className="showMore" style={this.state.showMore} onClick= {() => this.handleShowMoreButton()}>Show More</button>
-                <button className="showLess" style={this.state.showLess} onClick = {() => this.handleShowLessButton()}>Show Less</button>
-            </Col>
-          </Row>
-          <br></br>
-          <br></br>
-          <br></br>
+          <Col size="md-3">
+            <h2></h2>
+            <FormBtn onClick={() => this.handleDrugSubmit()}> Search For This Drug  </FormBtn>              
+          </Col>
+
+          {/* Return answer to desplay window */}
+          
+        </Row>
+        <Row>
+          <Col size="md-5">
+            
+            <div className="largeResults" style={this.state.largeResultsShow}>
+              <p className="DrugLabel">Name of US Drug:  <span id="generic">{this.state.search2}</span></p> 
+              <p className="DrugLocation">Active Ingredient: <span id="countryLoc">{this.state.generic_name}</span></p>
+              <p className="DrugLocation">Region This Drug Can Be Found: <span id="countryLoc">{this.state.country}</span></p>
+              <p className="DrugLocation">International Name : <span id="countryLoc">{this.state.internationalDrug}</span></p>
+              <p className="DrugInfo">{this.state.administration}</p>
+
+
+            </div>
+            <button className="showMore" style={this.state.showMore} onClick= {() => this.handleShowMoreButton()}>Show More</button>
+              <button className="showLess" style={this.state.showLess} onClick = {() => this.handleShowLessButton()}>Show Less</button>
+
+          </Col>
+          <Col size="md-5">
+            <div className="smallResults" style={this.state.smallResultsShow}>
+              <p className="DrugLabel">International Drug Name : <span id="countryLoc">{this.state.internationalDrug}</span></p>
+              <p className="DrugLocation">Active Ingredient : <span>{this.state.generic_name}</span></p>
+            </div>
+
+
+              
+          </Col>
+        </Row>
+        <br></br>
+        <br></br>
+        <br></br>
         
           <div className="medlist">
             <Row>
