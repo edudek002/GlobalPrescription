@@ -11,7 +11,7 @@ export const MedItem = props => (
   <td>{props.dosage}</td>
   <td>{props.frequency}</td>
   <td>{props.note}</td> 
-  <td><DeleteBtn onClick={() => props.deleteDrug(props._id)}/></td>
+  <td><DeleteBtn id={props.drug} onClick={() => props.deleteDrug(props._id)}/></td>
   </tr>
  
 );
