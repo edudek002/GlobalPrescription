@@ -110,6 +110,31 @@ class Contents extends React.Component {
           </div> */}
         </div>
 
+<<<<<<< HEAD
+        <div className={styles.right}>
+          <Map
+            {...this.props}
+            center={position}
+            centerAroundCurrentLocation={false}
+            google={this.props.google}
+            // ====================================== 
+            zoom={14}
+            style={{width: '600px', height: '600px', position: 'relative'}}
+            initialCenter={{lat: 44.986656, lng: -93.258133}}
+            //center={this.state.mapCenter}
+            //onClick={this.onMapClicked}
+            onClick={this.onMapReady}
+            //onReady={this.onMapReady}
+            // ====================================== 
+            containerStyle={{
+              height: '100vh',
+              position: 'relative',
+              width: '100%'
+            }}>
+            <Marker position={position} />
+            <Listing places={this.state.places} />
+          </Map>
+=======
         <div className="something">
             <Map
               {...this.props}
@@ -127,6 +152,7 @@ class Contents extends React.Component {
               <Marker position={position} />
               <Listing places={this.state.places} />
             </Map>
+>>>>>>> master
         </div>
       </div>
     );

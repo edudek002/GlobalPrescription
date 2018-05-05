@@ -1,19 +1,58 @@
+<<<<<<< HEAD
+.flexWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left {
+=======
  .flexWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
  }
   .left {
+>>>>>>> master
     flex: 1;
     order: 1;
     padding: 20px;
-  }
+} 
 
-  .right {
+.right {
     flex: 1;
     order: 2;
-  }
+} 
 
+<<<<<<< HEAD
+form {
+    margin: 20px auto;
+    position: relative;
+    height: 30px;
+}
+
+input {
+  height: 100%;
+  font-size: 1.4em;
+}
+
+input[type=text] {
+  width: 30%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid rgb(0, 0, 0);
+}
+
+input[type=submit] {
+  width: 10%;
+  position: absolute;
+  left: 570px;
+  top: 0;
+  border: 2px solid rgb(0, 0, 0);
+  background: rgb(135, 138, 180);
+}
+=======
   #mapForm {
     margin: 20px auto;
     position: relative;
@@ -43,3 +82,4 @@
     }
   
   
+>>>>>>> master
