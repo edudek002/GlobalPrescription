@@ -4,3 +4,7 @@
     vertical-align: top;
     border: 0;
 }
+
+.carousel .slide .legend {
+   font-size: 62px;
+}
