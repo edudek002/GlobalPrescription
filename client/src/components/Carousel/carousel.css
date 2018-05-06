@@ -1,10 +1,11 @@
 .carousel .slide img {
-    height: 502px;
+    height: 602px;
     width: 100%;
     vertical-align: top;
     border: 0;
 }
 
 .carousel .slide .legend {
-   font-size: 62px;
+   font-size: 62px !important;
+   background: rgba(02, 152, 217, 1.0)!important;
 }
