@@ -16,7 +16,7 @@ import MapBtn from "../MapBtn";
 import "./MyDrugs.css";
 import Footer from "../Navbar";
 import DemoCarousel from "../Carousel";
-
+import SearchBar from "../FormBtn";
 
 
 class MyDrugs extends Component {
