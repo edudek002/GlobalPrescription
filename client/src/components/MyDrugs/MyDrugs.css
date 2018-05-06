@@ -26,6 +26,8 @@
 	/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 	font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 	font-size: 18px;
 }
