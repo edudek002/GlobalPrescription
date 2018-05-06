@@ -254,7 +254,7 @@ class MyDrugs extends Component {
 
   render() {
       return (
-        <div className="backimage">
+        <div>
           <Col size="md-12">
           <Row>
           <Nav></Nav>
@@ -299,29 +299,26 @@ class MyDrugs extends Component {
           
         </Row>
         <Row>
-          <Col size="md-5">
+          <Col size="md-6">
             
-            <div className="largeResults" style={this.state.largeResultsShow}>
-              <p className="DrugLabel">Name of US Drug:  <span id="generic">{this.state.search2}</span></p> 
+            <div className="largeResults" style={this.state.largeResultsShow}> 
+              <p className="flag1"></p>        
+              <p className="DrugLabel">Name of US Drug:  <span id="generic">{this.state.search2}</span></p>              
               <p className="DrugLocation">Active Ingredient: <span id="countryLoc">{this.state.generic_name}</span></p>
               <p className="DrugLocation">Region This Drug Can Be Found: <span id="countryLoc">{this.state.country}</span></p>
               <p className="DrugLocation">International Name : <span id="countryLoc">{this.state.internationalDrug}</span></p>
               <p className="DrugInfo">{this.state.administration}</p>
-
-
             </div>
             <button className="showMore" style={this.state.showMore} onClick= {() => this.handleShowMoreButton()}>Show More</button>
               <button className="showLess" style={this.state.showLess} onClick = {() => this.handleShowLessButton()}>Show Less</button>
 
           </Col>
-          <Col size="md-5">
+          <Col size="md-6">
             <div className="smallResults" style={this.state.smallResultsShow}>
+              <p className="flag2"></p> 
               <p className="DrugLabel">International Drug Name : <span id="countryLoc">{this.state.internationalDrug}</span></p>
               <p className="DrugLocation">Active Ingredient : <span>{this.state.generic_name}</span></p>
             </div>
-
-
-              
           </Col>
         </Row>
         <br></br>
