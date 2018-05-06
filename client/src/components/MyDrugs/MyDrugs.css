@@ -59,10 +59,10 @@
 	background-image: linear-gradient(grey,lightgrey);
 }
 .DrugLabel {
-	background-color: lightgrey;
-	padding: 15px;
-	border-top-left-radius: 13px;
-	border-top-right-radius: 13px;
+	background-color: rgba(02, 152, 217, 1.0);
+	padding: 5px; 
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
 }
 .DrugInfo, .DrugLocation {
 	padding: 15px;
@@ -80,3 +80,22 @@ h2 {
 	background-image: url("polaroid.png");
 	background-size: 100px 100px;
 }
+
+.flag1{
+	background: url("USAFlag.png");
+	padding: 50px;
+	margin-bottom: 0px;
+	background-repeat: no-repeat;
+	background-size: 550px 350px;
+	opacity: 0.7;	
+}
+
+.flag2{
+	background-image: url("EUFlag.png");
+	padding: 50px;
+	margin-bottom: 0px;
+	background-repeat: no-repeat;
+	background-size: 550px 200px;	
+	opacity: 0.7;
+}
+

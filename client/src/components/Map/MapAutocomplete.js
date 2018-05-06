@@ -117,7 +117,7 @@ class Contents extends React.Component {
               center={position}
               centerAroundCurrentLocation={false}
               zoom={14}
-              style={{width: '800px', height: '600px', position: 'relative'}}
+              style={{width: '100%', height: '600px', position: 'relative'}}
               
               initialCenter={{lat: 44.986656, lng: -93.258133}}
               //onClick={this.onMapClicked}
