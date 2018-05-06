@@ -31,12 +31,13 @@ router.route("/search")
   .put(controller.userUpdate);
 
 router.route("/grabUser")
-    .get(controller.findAll);
+    .get(controller.findAll)
+    .delete(controller.remove);
 // Matches with "/api/drugs/:id"
 router
   .route("/:id")
   .get(controller.findById)
-  .put(controller.update)
-  .delete(controller.remove);
+  .put(controller.update);
+  //.delete(controller.remove);
 
 module.exports = router;

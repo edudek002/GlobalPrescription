@@ -116,9 +116,12 @@ module.exports = {
   },
 
   remove: function(req, res) {
-    db.Drug
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
+    console.log(req);
+    var query   = { userName: req.query.user}; 
+    var update  = { userDrugs: {drug : req.query.drug} }; 
+    //var options = { new: true }; 
+    db.User
+      .findOneAndUpdate(query, {$pull : update})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
