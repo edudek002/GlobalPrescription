@@ -1,0 +1,18 @@
+.btn-success {
+    display: block;
+    color: #000;
+    background-color: rgb(0, 144, 206);
+    background-image: linear-gradient(white,lightgrey);
+    border-color: rgb(2, 23, 143);
+    border-radius: 10px;
+    border-color: rgb(53, 53, 53);
+    border-width: 1px;
+    margin-top: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-success:hover {
+    color: rgb(0, 0, 0);
+    background-color: #555555;
+    border-color: #0b61b3;
+}
