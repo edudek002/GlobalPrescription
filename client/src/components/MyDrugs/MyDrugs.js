@@ -148,8 +148,11 @@ class MyDrugs extends Component {
   
   deleteDrug = id => {
     var x = id;
+    var test = {
+      test : "update"
+    }
     console.log(x);
-    API.deleteDrug(id)
+    API.deleteDrug(x)
       .then(res => this.loadDrugs())
       .catch(err => console.log(err));
   };

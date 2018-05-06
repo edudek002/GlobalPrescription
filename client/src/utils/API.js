@@ -42,7 +42,10 @@ export default {
   },
   // Deletes the drug with the given id
   deleteDrug: function(id) {
-    return axios.delete("/api/drugs/" + id);
+    return axios.delete("/api/drugs/grabUser", {
+      params : id }
+
+      );
   },
   // Saves a drug to the database
   saveDrug: function(drugData) {
