@@ -5,7 +5,7 @@ import "./carousel.css";
 
 class DemoCarousel extends Component {
     render() {
-        console.log("rending");
+        console.log("rendering");
         return <Carousel autoPlay interval={2000} infiniteLoop showThumbs={false} dynamicHeight>
             <div>
               <img src="images/pill2.jpg" />
