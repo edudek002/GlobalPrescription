@@ -5,24 +5,24 @@ import "./carousel.css";
 
 class DemoCarousel extends Component {
     render() {
-        console.log("rending");
-        return (
-            <Carousel>
-                <div>
-                    <img src="images/pill2.jpg" />
-                    {/* <H1 className="legend">THIS IS A TEST</H1> */}
-                    <p className="legend">GET PRESCRIPTIONS ON THE GO</p>
-                </div>
-                <div>
-                    <img src="images/pill3.jpg" />
-                    <p className="legend">TRAVEL WORRY FREE</p>
-                </div>
-                <div>
-                    <img src="images/pills.jpg" />
-                    <p className="legend">COMPARE PRESCRIPTIONS FROM ANY CORNER OF THE WORLD</p>
-                </div>
-            </Carousel>
-        );
+        console.log("rendering");
+        return <Carousel autoPlay interval={2000} infiniteLoop showThumbs={false} dynamicHeight>
+            <div>
+              <img src="images/pill2.jpg" />
+              {/* <H1 className="legend">THIS IS A TEST</H1> */}
+              <p className="legend">GET PRESCRIPTIONS ON THE GO</p>
+            </div>
+            <div>
+              <img src="images/pill3.jpg" />
+              <p className="legend">TRAVEL WORRY FREE</p>
+            </div>
+            <div>
+              <img src="images/pills.jpg" />
+              <p className="legend">
+                COMPARE PRESCRIPTIONS INGREDIENTS
+              </p>
+            </div>
+          </Carousel>;
     }
 };
 

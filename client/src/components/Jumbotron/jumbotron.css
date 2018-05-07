@@ -3,4 +3,9 @@
   background-size: cover;
   text-align: center;
   height: 250px;
+  margin-bottom: -20px;
+}
+
+.display-4{
+  margin-top:18px;
 }
