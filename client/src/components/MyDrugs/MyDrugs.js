@@ -300,7 +300,7 @@ class MyDrugs extends Component {
               {/* Return answer to desplay window */}
             </Row>
             <Row>
-              <Col size="md-5">
+              <Col size="md-6">
                 <div className="largeResults" style={this.state.largeResultsShow}>
                   <p className="flag1"></p>  
                   <p className="DrugLabel">
@@ -332,7 +332,7 @@ class MyDrugs extends Component {
                   Show Less
                 </button>
               </Col>
-              <Col size="md-5">
+              <Col size="md-6">
                 <div className="smallResults" style={this.state.smallResultsShow}>
                   <p className="flag2"></p> 
                   <p className="DrugLabel">
