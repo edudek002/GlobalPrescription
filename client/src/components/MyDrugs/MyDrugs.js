@@ -302,6 +302,7 @@ class MyDrugs extends Component {
             <Row>
               <Col size="md-5">
                 <div className="largeResults" style={this.state.largeResultsShow}>
+                  <p className="flag1"></p>  
                   <p className="DrugLabel">
                     Name of US Drug: <span id="generic">
                       {this.state.search2}
@@ -333,6 +334,7 @@ class MyDrugs extends Component {
               </Col>
               <Col size="md-5">
                 <div className="smallResults" style={this.state.smallResultsShow}>
+                  <p className="flag2"></p> 
                   <p className="DrugLabel">
                     International Drug Name : <span id="countryLoc">
                       {this.state.internationalDrug}
