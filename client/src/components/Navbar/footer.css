@@ -1,7 +1,9 @@
 .navbar-fixed-bottom {
-    bottom: -640px;
-    background-color: teal;
-    position: relative;
-    height: 250px;
-    text-align: center;
+  bottom: -640px;
+  /* background-color: teal; */
+  background-image: url("../Jumbotron/sky3.png");
+  background-size: cover;
+  position: relative;
+  height: 250px;
+  text-align: center;
 }
