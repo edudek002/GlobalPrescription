@@ -1,17 +1,10 @@
 {
-<<<<<<< HEAD
 
   "main.css": "static/css/main.7db6921b.css",
   "main.css.map": "static/css/main.7db6921b.css.map",
   "main.js": "static/js/main.3dad21cd.js",
   "main.js.map": "static/js/main.3dad21cd.js.map",
 
-=======
-  "main.css": "static/css/main.346856be.css",
-  "main.css.map": "static/css/main.346856be.css.map",
-  "main.js": "static/js/main.a6559ff0.js",
-  "main.js.map": "static/js/main.a6559ff0.js.map",
->>>>>>> 21d95a1a4b66b96dbbb69d34101d2bd70ec5e9bd
   "static\\media\\EUFlag.png": "static/media/EUFlag.f2e70639.png",
   "static\\media\\USAFlag.png": "static/media/USAFlag.b08cce47.png",
   "static\\media\\sky3.png": "static/media/sky3.486794db.png"
