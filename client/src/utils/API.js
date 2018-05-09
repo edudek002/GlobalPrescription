@@ -20,12 +20,19 @@ export default {
     console.log("this display function is working")
     return axios.get("/api/drugs/logged", { params: userData });
   },
-  redirect: function (Token) {
-    console.log(Token);
-    localStorage.setItem("User", Token);
+  // redirect: function (Token) {
+  //   console.log(Token);
+  //   localStorage.setItem("User", Token);
     
-    window.location = "/drugs"
+  //   window.location = "/drugs"
+  // },
+  redirect: function (Token) {
+    // setTimeout(function () { window.location = "/drugs"; }, 3000);
+    localStorage.setItem("User", Token);
+    setTimeout(function () { window.location = "/drugs"; }, 3000);
+    // window.location = "/drugs"
   },
+
   getDrugs: function(data) {
     console.log(data);
     return axios.get("/api/drugs/grabUser/", {
