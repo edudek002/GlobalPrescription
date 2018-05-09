@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import DeleteBtn from "../DeleteBtn";
-import MapAutocomplete from "../Map";
+// import DeleteBtn from "../DeleteBtn";
+// import MapAutocomplete from "../Map";
 import MapWrapper from "../Map";
 import Jumbotron from "../Jumbotron";
 import Nav from "../Nav";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../Grid";
-import { List, ListItem } from "../List";
+// import { Link } from "react-router-dom";
+import { Col, Row } from "../Grid"; //'Container' was removed not used
+// import { List, ListItem } from "../List";
 import { Input, FormBtn } from "../SearchBar";
 import { InputMedList, TextAreaMedList, FormBtnMedList } from "../FormMedList";
-import CountryDd from "../CountryDd";
+// import CountryDd from "../CountryDd";
 import {MedList} from "../MedList";
-import MapBtn from "../MapBtn";
+// import MapBtn from "../MapBtn";
 import "./MyDrugs.css";
 import Footer from "../Navbar";
 import DemoCarousel from "../Carousel";
@@ -283,18 +283,15 @@ class MyDrugs extends Component {
           <div className="container">
             <Row>
               <Col size="md-8">
-                <h2>Search for Drug</h2>
-                <Input value={this.state.search} onChange={this.handleInputChange} name="search" placeholder="Search Your Drug" />
+                <br></br>
+                <h2>Search Medications</h2>
+                <Input value={this.state.search} onChange={this.handleInputChange} name="search" placeholder="Enter Medication to search" />
               </Col>
             </Row>
             <Row>
               {/* Choose Country to search */}
               <Col size="md-3">
-                <h2 />
-                <FormBtn onClick={() => this.handleDrugSubmit()}>
-                  {" "}
-                  Search For This Drug{" "}
-                </FormBtn>
+                <FormBtn onClick={() => this.handleDrugSubmit()}>{"Search this Medication"}</FormBtn>
               </Col>
 
               {/* Return answer to desplay window */}
