@@ -113,6 +113,12 @@ const drugSeed = [
     active_ingredient : "gabapentin", 
     dosage : "300mg/day",
     country : "United States"
+  },
+  {
+    drug : "Burana",
+    active_ingredient : "Advil",
+    dosage : "200 to 400 mg orally every 4 to 6 hours as needed",
+    country : "Europe"
   }
 
 ];
