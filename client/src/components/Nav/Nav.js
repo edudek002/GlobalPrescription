@@ -1,10 +1,8 @@
 import React from "react";
 
 const Nav = () => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light" >
-    <a className="navbar-brand" href="#">
-      Global Prescrption
-    </a>
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <a className="navbar-brand">Global Prescrption</a>
     <button
       className="navbar-toggler"
       type="button"
@@ -19,28 +17,32 @@ const Nav = () => (
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
       <ul className="navbar-nav">
         <li className="nav-item active">
-          <a className="nav-link" href="#">
+          <a className="nav-link">
             Home <span className="sr-only">(current)</span>
           </a>
         </li>
 
         {/* <div className="rightfloat"> */}
         <li className="nav-item">
+          {/* links for routes */}
           <a className="nav-link" href="#">
             Products
           </a>
         </li>
         <li className="nav-item">
+          {/* links for routes */}
           <a className="nav-link" href="#">
             About
           </a>
         </li>
         <li className="nav-item">
+          {/* links for routes */}
           <a className="nav-link" href="#">
             Contact
           </a>
         </li>
         <li className="nav-item">
+          {/* links for routes */}
           <a className="nav-link" href="/">
             Logout
           </a>
