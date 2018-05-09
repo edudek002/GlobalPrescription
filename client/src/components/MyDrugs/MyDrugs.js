@@ -282,7 +282,7 @@ class MyDrugs extends Component {
             <Row>
               <Col size="md-8">
                 <br></br>
-                <h2>Search Medications</h2>
+                <h2>Search Drugs!!!!!!!</h2>
                 <Input value={this.state.search} onChange={this.handleInputChange} name="search" placeholder="Enter Medication to search" />
               </Col>
             </Row>
