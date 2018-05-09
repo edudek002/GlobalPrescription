@@ -70,7 +70,6 @@ class MyDrugs extends Component {
     console.log(x);
     API.getDrugs(x)
       .then(res => {
-        console.log(res);
         this.setState({drugs : res.data[0].userDrugs, drug : "", active_ingredient : "", dosage : ""})
       }
       

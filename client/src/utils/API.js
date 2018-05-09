@@ -29,7 +29,7 @@ export default {
   redirect: function (Token) {
     // setTimeout(function () { window.location = "/drugs"; }, 3000);
     localStorage.setItem("User", Token);
-    setTimeout(function () { window.location = "/drugs"; }, 3000);
+    setTimeout(function () { window.location = "/drugs"; }, 1000);
     // window.location = "/drugs"
   },
 
