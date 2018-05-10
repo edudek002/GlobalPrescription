@@ -14,16 +14,24 @@ const Footer = () => (
       </div>
       <div className="row">
         <div className="col-md-12">
+          <i className="fab fa-github-square" />
+          <i className="fab fa-facebook-square" />
+          <i class="fab fa-instagram" />
+          <i class="fab fa-twitter-square" />
+          <i class="fab fa-linkedin" />
+          
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12">
           <p>Created by Drugs Rx Us</p>
         </div>
       </div>
 
-      
-
       <div className="row">
         <div className="col-md-12">
           <p>
-            Nathan Bos, Walter Zuschlag, Edyta Dudek, Amin Kedir, Sam Mwangi
+            Nathan Bos, Edyta Dudek, Amin Kedir, Sam Mwangi, Walter Zuschlag
           </p>
         </div>
       </div>

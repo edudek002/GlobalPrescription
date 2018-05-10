@@ -1,9 +1,19 @@
 .navbar-fixed-bottom {
   bottom: -640px;
-  background-color: red;
-  /* background-image: url("../Jumbotron/sky3.png"); */
+  /* background-color: red; */
+  background-image: url("../Jumbotron/sky3.png");
   background-size: cover;
   position: relative;
   height: 250px;
   text-align: center;
+}
+.fab {
+  font-size: 30px;
+  padding-right: 20px;
+  color: white;
+}
+
+h2, p {
+  color: #ffffffcc;
+  
 }
