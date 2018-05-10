@@ -76,6 +76,7 @@ class MyDrugs extends Component {
       )
       .catch(err => console.log("Error from loadDrugs ", err));
   };
+  
   searchAPI = () => {
 
     let search = this.state.search
