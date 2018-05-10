@@ -91,7 +91,7 @@ class MyDrugs extends Component {
           search2 : displaySearch,
           generic_name : res.data.results[0].openfda.generic_name,
           country : "USA",
-          internationalDrug : "NA",
+          internationalDrug : "Not Found",
           administration : res.data.results[0].dosage_and_administration
         })
       })
