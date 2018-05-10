@@ -114,7 +114,7 @@ class MyDrugs extends Component {
             console.log(searchReplaced);
             
             //THEN OPEN FDA API CALLL
-            const query = "?search=" + newSearch
+            const query = "?search=" + searchReplaced;
             console.log("query: " + query);
             API.searchDrug(query)
               .then(res => 
