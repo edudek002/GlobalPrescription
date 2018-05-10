@@ -119,6 +119,12 @@ const drugSeed = [
     active_ingredient : "Advil",
     dosage : "200 to 400 mg orally every 4 to 6 hours as needed",
     country : "Europe"
+  },
+  {
+    drug : "CureCancer",
+    active_ingredient : "tylenol",
+    dosage : "NA",
+    country : "Europe"
   }
 
 ];
