@@ -4,6 +4,9 @@
 
 ### Members: Edyta Dudek, Sam Mwangi, Nathan Bos, Walter Zuschlag, Amin Kedir
 
+### Try it at url https://morning-brook-86396.herokuapp.com/
+### by pass login with https://morning-brook-86396.herokuapp.com/drugs
+
 Proposal
 Have you ever traveled abroad and fell ill, only to find that the medication you were so used to in your home country is either not available or….well, you don’t know what it’s called. Well for the purpose of this final project we decided to create a database that houses a list of drugs along with its international equivalencies. This database will also serve as a patient database for hospitals in third world countries who still keep track of patient information using pen and paper.
 
