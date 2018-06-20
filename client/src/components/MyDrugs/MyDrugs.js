@@ -23,7 +23,7 @@ class MyDrugs extends Component {
   state = {
     drugs: [],
     drug: "",
-    internationalDrug : "",
+    internationalDrug : "Not Found",
     active_ingredient: "",
     dosage: "",
     frequency: "",
@@ -92,25 +92,20 @@ class MyDrugs extends Component {
           search2 : displaySearch,
           generic_name : res.data.results[0].openfda.generic_name,
           country : "USA",
-          internationalDrug : "Not Found",
           administration : res.data.results[0].dosage_and_administration
         })
-      })
-    .catch(err => console.log(err));
-    
-    // FIRST SEARCH OUR DATABASE
-    API.getDbDrugs()
-      .then(res => {
-        for (let i = 0; i <res.data.length; i++) {
-          if (search === res.data[i].active_ingredient) {
-            console.log(res.data[i].drug)
+        API.getDbDrugs(search)
+          .then(res => {
+            console.log(res);
+          if (search === res.data[0].active_ingredient) {
+            console.log(res.data[0].drug)
             this.setState({
-              apiSearch : res.data[i].active_ingredient,
-              internationalDrug : res.data[i].drug,
-              country : res.data[i].country
+              apiSearch : res.data[0].active_ingredient,
+              internationalDrug : res.data[0].drug,
+              country : res.data[0].country
             })
             console.log(this.state.country);
-            newSearch = res.data[i].active_ingredient
+            newSearch = res.data[0].active_ingredient
             let searchReplaced = newSearch.split(' ').join('+');
             console.log(searchReplaced);
             
@@ -131,8 +126,13 @@ class MyDrugs extends Component {
             else {
               console.log("No Results Found");
             }
-          }
-      });    
+          
+      }); 
+      })
+    .catch(err => console.log(err));
+    
+    // FIRST SEARCH OUR DATABASE
+       
   };
 
   displayUser = () => {
@@ -175,16 +175,6 @@ class MyDrugs extends Component {
         user : this.state.activeUser
       }
 
-
-      // API.saveDrug({
-      //   drug: this.state.drug,
-      //   active_ingredient: this.state.active_ingredient,
-      //   dosage: this.state.dosage,
-      //   frequency: this.state.frequency,
-      //   note: this.state.note
-      // })
-      //   .then(res => this.loadDrugs())
-      //   .catch(err => console.log(err));
 
       API.testUpdate(drugsToSend)
         .then(res => {

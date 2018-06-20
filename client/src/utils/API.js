@@ -40,8 +40,8 @@ export default {
       );
   },
 
-  getDbDrugs : function() {
-    return axios.get("/api/drugs")
+  getDbDrugs : function(search) {
+    return axios.get("/api/drugs", {params : search})
   },
   // Gets the drug with the given id
   getDrug: function(id) {

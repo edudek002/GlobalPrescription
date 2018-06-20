@@ -63,9 +63,11 @@ module.exports = {
   // },
 
   findAllDrugs: function(req, res) {
-    db.Drug
-      .find()
+    console.log(req);
+    var query = req.query[0];
 
+    db.Drug
+      .find({ active_ingredient : query})
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
