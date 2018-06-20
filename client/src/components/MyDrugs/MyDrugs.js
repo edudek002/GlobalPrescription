@@ -87,7 +87,7 @@ class MyDrugs extends Component {
     console.log("query: " + query);
     API.searchDrug(query)
       .then(res => {
-        console.log("This is searched");
+        console.log("This is searched!!!!!");
         this.setState({
           search2 : displaySearch,
           generic_name : res.data.results[0].openfda.generic_name,
