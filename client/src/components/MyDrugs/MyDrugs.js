@@ -85,51 +85,52 @@ class MyDrugs extends Component {
     
     const query = "?search=" + search;
     console.log("query: " + query);
-    API.searchDrug(query)
-      .then(res => {
-        console.log("This is searched!!!!!");
-        this.setState({
-          search2 : displaySearch,
-          generic_name : res.data.results[0].openfda.generic_name,
-          country : "USA",
-          administration : res.data.results[0].dosage_and_administration
-        })
+    // API.searchDrug(query)
+    //   .then(res => {
+    //     console.log("This is searched!!!!!");
+    //     this.setState({
+    //       search2 : displaySearch,
+    //       generic_name : res.data.results[0].openfda.generic_name,
+    //       country : "USA",
+    //       administration : res.data.results[0].dosage_and_administration
+    //     })
         API.getDbDrugs(search)
           .then(res => {
-            console.log(res);
-          if (search === res.data[0].active_ingredient) {
-            console.log(res.data[0].drug)
-            this.setState({
-              apiSearch : res.data[0].active_ingredient,
-              internationalDrug : res.data[0].drug,
-              country : res.data[0].country
-            })
-            console.log(this.state.country);
-            newSearch = res.data[0].active_ingredient
-            let searchReplaced = newSearch.split(' ').join('+');
-            console.log(searchReplaced);
-            
-            //THEN OPEN FDA API CALLL
-            const query = "?search=" + searchReplaced;
-            console.log("query: " + query);
-            API.searchDrug(query)
-              .then(res => 
-                {
-                  console.log( res.data.results[0]);
-                  this.setState({
-                    generic_name : res.data.results[0].openfda.generic_name,
-                    administration : res.data.results[0].dosage_and_administration
-                  })
-                })
-              .catch(err => console.log(err));
-            }
-            else {
+            console.log(res.data.length);
+            if (res.data.length == 0) {
               console.log("No Results Found");
+              alert("No Results Found");
             }
+            else if (search === res.data[0].active_ingredient) {
+              console.log(res.data[0].drug)
+              this.setState({
+                apiSearch : res.data[0].active_ingredient,
+                internationalDrug : res.data[0].drug,
+                country : res.data[0].country
+              })
+              console.log(this.state.country);
+              newSearch = res.data[0].active_ingredient
+              let searchReplaced = newSearch.split(' ').join('+');
+              console.log(searchReplaced);
+              
+              //THEN OPEN FDA API CALLL
+              const query = "?search=" + searchReplaced;
+              console.log("query: " + query);
+              API.searchDrug(query)
+                .then(res => 
+                  {
+                    console.log( res.data.results[0]);
+                    this.setState({
+                      generic_name : res.data.results[0].openfda.generic_name,
+                      administration : res.data.results[0].dosage_and_administration
+                    })
+                  })
+                .catch(err => console.log(err));
+              }
           
       }); 
-      })
-    .catch(err => console.log(err));
+      // })
+    //.catch(err => console.log(err));
     
     // FIRST SEARCH OUR DATABASE
        
