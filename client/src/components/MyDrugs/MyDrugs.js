@@ -98,7 +98,7 @@ class MyDrugs extends Component {
           .then(res => {
             console.log(res.data.length);
             if (res.data.length == 0) {
-              console.log("No Results Found");
+              console.log("No Results Found!!!");
               alert("No Results Found");
             }
             else if (search === res.data[0].active_ingredient) {
