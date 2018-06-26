@@ -84,6 +84,14 @@ module.exports = {
       });
   },
 
+
+  searchAll : function(req, res) {
+    db.Drug
+      .find({})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
+  },
+
   findAll: function(req, res) {
     console.log(req.query[0]);
     var query = req.query[0];

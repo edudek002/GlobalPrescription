@@ -5,7 +5,7 @@
 	background-color: white;
 	display: none;
 	/*padding: 10px;*/
-	margin-bottom: 10px;
+	margin-bottom: 50px;
 	height: 245px;
 	overflow: hidden;
 	/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
@@ -21,7 +21,7 @@
 	background-color: white;
 	display: none;
 	/*padding: 10px;*/
-	margin-bottom: 10px;
+	margin-bottom: 50px;
 	height: 245px;
 	overflow: hidden;
 	/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
@@ -34,7 +34,7 @@
 	border-radius: 10px;
 	border-color: grey;
 	border-width: 1px;
-	margin-top: 30px;
+	margin-top: 5px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-image: linear-gradient(white,lightgrey);
 }
@@ -43,7 +43,7 @@
 	border-radius: 10px;
 	border-color: grey;
 	border-width: 1px;
-	margin-top: 30px;
+	margin-top: 5px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
 	background-image: linear-gradient(white,lightgrey);
 }
@@ -102,4 +102,25 @@ h2 {
 .form-control{
 	width: 76%;
 }
+.allDrugsShow {
+	border-style: solid;
+	border-width: 1px;
+	background-color: whitesmoke;
+	width: 100%;
+	min-height: 250px;
+	padding : 20px;
+	border-radius: 15px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	z-index: 50;
+	display: none;
+	margin-top: 80px;
+}
 
+.closeBtn {
+	margin-top: 15px;
+	border-radius: 10px;
+	border-width: 1px;
+	border-color: black;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -10,6 +10,11 @@ router.route("/")
   .post(controller.create)
   .post(controller.addUser);
 
+router
+  .route("/database")
+  .get(controller.searchAll);
+  //.delete(controller.remove);
+
 router.route("/landing")
   .get(controller.takeInfo)
   .post(controller.addUser);
@@ -38,6 +43,7 @@ router
   .route("/:id")
   .get(controller.findById)
   .put(controller.update);
-  //.delete(controller.remove);
+
+
 
 module.exports = router;

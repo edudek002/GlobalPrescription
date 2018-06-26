@@ -20,12 +20,7 @@ export default {
     console.log("this display function is working")
     return axios.get("/api/drugs/logged", { params: userData });
   },
-  // redirect: function (Token) {
-  //   console.log(Token);
-  //   localStorage.setItem("User", Token);
-    
-  //   window.location = "/drugs"
-  // },
+
   redirect: function (Token) {
     // setTimeout(function () { window.location = "/drugs"; }, 3000);
     localStorage.setItem("User", Token);
@@ -65,7 +60,10 @@ export default {
   }, 
   testUpdate : function(drug) {
     console.log(drug);
-    return axios.put("/api/drugs/search/", drug)
+    return axios.put("/api/drugs/search/", drug);
+  },
+  searchAllDrugs: function() {
+    return axios.get("/api/drugs/database");
   }
 
 };

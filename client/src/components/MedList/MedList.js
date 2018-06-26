@@ -4,6 +4,8 @@ import {MedItem} from './MedItem'
 import "./MedList.css";
 
 export const MedList= ({ drugs, deleteDrug }) => {
+
+
   return (
     <div>
       <table className="table">

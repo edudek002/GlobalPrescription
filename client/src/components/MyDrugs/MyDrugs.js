@@ -5,9 +5,9 @@ import API from "../../utils/API";
 import MapWrapper from "../Map";
 import Jumbotron from "../Jumbotron";
 import Nav from "../Nav";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Col, Row } from "../Grid"; //'Container' was removed not used
-// import { List, ListItem } from "../List";
+import { List, ListItem } from "../List";
 import { Input, FormBtn } from "../SearchBar";
 import { InputMedList, TextAreaMedList, FormBtnMedList } from "../FormMedList";
 // import CountryDd from "../CountryDd";
@@ -22,6 +22,7 @@ import DemoCarousel from "../Carousel";
 class MyDrugs extends Component {
   state = {
     drugs: [],
+    allDrugs: [],
     drug: "",
     internationalDrug : "Not Found",
     active_ingredient: "",
@@ -52,17 +53,37 @@ class MyDrugs extends Component {
       overflow : 'hidden'
     },
     apiSearch : "",
-    activeUser : ""
+    activeUser : "",
+    allDrugsShow : {
+      display : 'none'
+    }
     
   }; 
   
   componentDidMount() {
     this.displayUser();
     this.loadDrugs();
+    this.databaseDrugs();
     
   }
 
   
+
+  databaseDrugs = () => {
+
+    let dbDrugs = [];
+
+    API.searchAllDrugs()
+      .then(res => {
+        res.data.forEach(function(data) {
+          dbDrugs.push(data.active_ingredient)
+        });
+        console.log(dbDrugs);
+        this.setState({
+          allDrugs : dbDrugs
+        })
+      });
+  }
 
   loadDrugs = () => {
 
@@ -70,14 +91,13 @@ class MyDrugs extends Component {
     API.getDrugs(x)
       .then(res => {
         this.setState({drugs : res.data[0].userDrugs, drug : "", active_ingredient : "", dosage : ""})
-      }
-      
-        
+      }  
       )
       .catch(err => console.log("Error from loadDrugs ", err));
   };
   
   searchAPI = () => {
+
 
     let search = this.state.search
     let displaySearch = this.state.search
@@ -85,15 +105,7 @@ class MyDrugs extends Component {
     
     const query = "?search=" + search;
     console.log("query: " + query);
-    // API.searchDrug(query)
-    //   .then(res => {
-    //     console.log("This is searched!!!!!");
-    //     this.setState({
-    //       search2 : displaySearch,
-    //       generic_name : res.data.results[0].openfda.generic_name,
-    //       country : "USA",
-    //       administration : res.data.results[0].dosage_and_administration
-    //     })
+
         API.getDbDrugs(search)
           .then(res => {
             console.log(res.data.length);
@@ -239,7 +251,22 @@ class MyDrugs extends Component {
           
         })
       }
-    
+  
+  handleSeeAllDrugs = event => {
+    this.setState({
+      allDrugsShow : {
+        display : 'block'
+      }
+    })
+  }
+
+  handleHideAllDrugs = event => {
+    this.setState({
+      allDrugsShow : {
+        display : 'none'
+      }
+    })
+  }
 
 
   render() {
@@ -280,6 +307,7 @@ class MyDrugs extends Component {
               <Col size="md-3">
                 <FormBtn onClick={() => this.handleDrugSubmit()}>{"Search this Medication"}</FormBtn>
               </Col>
+              <Col size="md-3"><FormBtn onClick={() => this.handleSeeAllDrugs()}>{"See All Drugs"}</FormBtn></Col>
 
               {/* Return answer to desplay window */}
             </Row>
@@ -289,7 +317,7 @@ class MyDrugs extends Component {
                   <p className="flag1"></p>  
                   <p className="DrugLabel">
                     Name of US Drug: <span id="generic">
-                      {this.state.search2}
+                      {this.state.search}
                     </span>
                   </p>
                   <p className="DrugLocation">
@@ -332,6 +360,30 @@ class MyDrugs extends Component {
                 </div>
               </Col>
             </Row>
+
+            <Row>
+              <Col size="md-12">
+              <div className="allDrugsShow" style={this.state.allDrugsShow}>Drug Names
+              
+              {this.state.allDrugs.length ? (
+              <List>
+                {this.state.allDrugs.map(drug => (
+                  <ListItem key={drug}>
+                      <strong>
+                      {drug} 
+                      </strong>
+                    
+                  </ListItem>
+                ))}
+              </List>
+
+            ) : (
+              <h3>No Result to Display</h3>
+            ) }
+              <button className="closeBtn" onClick={() => this.handleHideAllDrugs()}>{"Close"}</button>
+              </div></Col>
+            </Row>
+
             <br />
             <br />
             <br />
@@ -389,30 +441,6 @@ class MyDrugs extends Component {
             <br />
             <br />
 
-            {/* <Row>
-          <Col size="md-6 sm-12">
-            
-            <h2>Medicine I Take</h2>
-            
-            {this.state.drugs.length ? (
-              <List>
-                {this.state.drugs.map(drug => (
-                  <ListItem key={drug._id}>
-                    <Link to={"/drugs/" + drug._id}>
-                      <strong>
-                      {drug.drug} take {drug.dosage} {drug.frequency}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteDrug(drug._id)} />
-                    
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Result to Display</h3>
-            )}
-          </Col>
-        </Row> */}
             {/* </Container> */}
           </div>
           <Footer />
