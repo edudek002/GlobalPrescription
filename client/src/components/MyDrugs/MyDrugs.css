@@ -109,13 +109,12 @@ h2 {
 	width: 76%;
 }
 .allDrugsShow {
-	border-style: solid;
-	border-width: 1px;
 	background-color: whitesmoke;
 	width: 100%;
 	min-height: 175px;
 	padding : 20px;
-	border-radius: 15px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	display: none;
 	position: relative;
