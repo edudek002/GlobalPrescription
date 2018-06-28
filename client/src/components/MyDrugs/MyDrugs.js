@@ -268,6 +268,16 @@ class MyDrugs extends Component {
     })
   }
 
+  handleStrongSearch = event => {
+    console.log(event);
+    let strongSearch = event.drug;
+    console.log(strongSearch);
+    this.setState({
+      search : strongSearch
+    })
+    
+  }
+
 
   render() {
       return <div className="backimage">
@@ -302,15 +312,37 @@ class MyDrugs extends Component {
                 <Input value={this.state.search} onChange={this.handleInputChange} name="search" placeholder="Enter Medication to search" />
               </Col>
             </Row>
-            <Row>
+            <div className="row" id="mainButtonRow">
               {/* Choose Country to search */}
               <Col size="md-3">
                 <FormBtn onClick={() => this.handleDrugSubmit()}>{"Search this Medication"}</FormBtn>
               </Col>
-              <Col size="md-3"><FormBtn onClick={() => this.handleSeeAllDrugs()}>{"See All Drugs"}</FormBtn></Col>
+              <Col size="md-3"><FormBtn onClick={() => this.handleSeeAllDrugs()}>{"See All Drugs"}</FormBtn>
+              <div className="allDrugsShow" style={this.state.allDrugsShow}><span className="titleDrug">Drug Names</span>
+              
+              {this.state.allDrugs.length ? (
+              <List>
+                {this.state.allDrugs.map(drug => (
+                  <ListItem key={drug}>
+                      <strong value={drug} onClick={() => this.handleStrongSearch({drug})}>
+                      {drug} 
+                      </strong>
+                    
+                  </ListItem>
+                ))}
+              </List>
+
+            ) : (
+              <h3>No Result to Display</h3>
+            ) }
+              <button className="closeBtn" onClick={() => this.handleHideAllDrugs()}>{"Close"}</button>
+              </div>
+              </Col>
 
               {/* Return answer to desplay window */}
-            </Row>
+            </div>
+
+
             <Row>
               <Col size="md-6">
                 <div className="largeResults" style={this.state.largeResultsShow}>
@@ -360,29 +392,8 @@ class MyDrugs extends Component {
                 </div>
               </Col>
             </Row>
+            <br />
 
-            <Row>
-              <Col size="md-12">
-              <div className="allDrugsShow" style={this.state.allDrugsShow}>Drug Names
-              
-              {this.state.allDrugs.length ? (
-              <List>
-                {this.state.allDrugs.map(drug => (
-                  <ListItem key={drug}>
-                      <strong>
-                      {drug} 
-                      </strong>
-                    
-                  </ListItem>
-                ))}
-              </List>
-
-            ) : (
-              <h3>No Result to Display</h3>
-            ) }
-              <button className="closeBtn" onClick={() => this.handleHideAllDrugs()}>{"Close"}</button>
-              </div></Col>
-            </Row>
 
             <br />
             <br />

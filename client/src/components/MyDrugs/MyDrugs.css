@@ -5,7 +5,6 @@
 	background-color: white;
 	display: none;
 	/*padding: 10px;*/
-	margin-bottom: 50px;
 	height: 245px;
 	overflow: hidden;
 	/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
@@ -107,13 +106,18 @@ h2 {
 	border-width: 1px;
 	background-color: whitesmoke;
 	width: 100%;
-	min-height: 250px;
+	min-height: 175px;
 	padding : 20px;
 	border-radius: 15px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	z-index: 50;
 	display: none;
-	margin-top: 80px;
+	position: relative;
+	z-index: 1111;
+	margin-top: 50px;
+/*	position: fixed;
+	top: 21%;
+	left: 27%;*/
+	overflow: visible;
 }
 
 .closeBtn {
@@ -121,6 +125,16 @@ h2 {
 	border-radius: 10px;
 	border-width: 1px;
 	border-color: black;
-	background-color: white;
+	background-color: grey;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.titleDrug {
+	margin-bottom: 10px;
+	padding: 10px;
+	font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+#mainButtonRow {
+	height: 75px;
 }

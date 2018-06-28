@@ -1,7 +1,7 @@
 .list-overflow-container {
-  max-height: 545px;
-  border: 1px #DDDDDD solid;
-  border-radius: 4px;
+  max-height: 400px;
+/*  border: 1px #DDDDDD solid;
+  border-radius: 4px;*/
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -30,4 +30,13 @@
 
 .list-overflow-container li:last-child {
   border-bottom: none;
+}
+.list-group-item {
+  background-color: whitesmoke;
+  border: none;
+
+}
+.list-group {
+  margin-top: 15px;
+  border: none;
 }
