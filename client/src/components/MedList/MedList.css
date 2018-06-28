@@ -11,6 +11,7 @@
   border-style: solid;
   border-radius: 15px;
   border-color: rgb(122, 122, 122);
+  overflow: hidden;
 }
 
 .navbar {

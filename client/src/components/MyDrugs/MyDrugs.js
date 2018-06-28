@@ -269,13 +269,14 @@ class MyDrugs extends Component {
   }
 
   handleStrongSearch = event => {
-    console.log(event);
     let strongSearch = event.drug;
-    console.log(strongSearch);
     this.setState({
-      search : strongSearch
+      search : strongSearch,
+      allDrugsShow : {
+        display : 'none'
+      }
     })
-    
+
   }
 
 
@@ -335,7 +336,7 @@ class MyDrugs extends Component {
             ) : (
               <h3>No Result to Display</h3>
             ) }
-              <button className="closeBtn" onClick={() => this.handleHideAllDrugs()}>{"Close"}</button>
+              <button className="closeBtn" onClick={() => this.handleHideAllDrugs()}>{"X"}</button>
               </div>
               </Col>
 
