@@ -58,11 +58,11 @@ You can find the app on
 
 3. Save the prescription you are taking
 
-![Save your medications in this table](Picture2.png)
+![Save your medications in this table](/Picture2.png)
 
 4. Find the nearest pharmacy 
 
-![Find the pharmacy on the map.](Picture3.png)
+![Find the pharmacy on the map.](/Picture3.png)
 
 
 
