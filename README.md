@@ -12,6 +12,12 @@ You can find the app on
 
 [Bypass login](https://evening-sea-66958.herokuapp.com/drugs)
 
+**How to run the app**
+
+1. Instal dependencies by running “yarn install” at the project root and `yarn install` again from within the `client` folder. 
+2. Start the application by running “yarn start” from the project root.   
+3. Remember to have mongod and mongo open in the terminal. 
+4. To populate the application with the information stored in the database use “yarn seed” command from the project root.   
 
 **User Flow**
 
