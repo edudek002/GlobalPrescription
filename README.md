@@ -1,7 +1,7 @@
 # GlobalPrescription
 
 
-This app gives the user access to Federal Drug Administration database that houses a list of drugs. Then the app finds the drug international equivalencies based on a active ingredient. This database could also serve as a patient database for hospitals in the third world countries who still keep track of patient information using pen and paper.
+This app gives the user access to the Federal Drug Administration database that houses a list of drugs. Then the app finds the drug's international equivalencies based on an active ingredient. This database could also serve as a patient database for hospitals in the third world countries who still keep track of patient's information using pen and paper.
 
 
 **Accessing the App**
