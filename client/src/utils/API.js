@@ -22,10 +22,11 @@ export default {
     return axios.get("/api/drugs/logged", { params: userData });
   },
 
-  redirect: function (Token) {
+  redirect: function (token) {
     // setTimeout(function () { window.location = "/drugs"; }, 3000);
-    localStorage.setItem("User", Token);
-    setTimeout(function () { window.location = "/drugs"; }, 1000);
+    localStorage.setItem("User", token.name);
+    localStorage.setItem("ActiveUser", token.active);
+    // setTimeout(function () { window.location = "/drugs"; }, 1000);
     // window.location = "/drugs"
   },
 

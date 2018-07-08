@@ -17,6 +17,10 @@ class Login extends Component {
     isAuthenticated : false
   };
 
+  componentDidMount() {
+    localStorage.setItem("ActiveUser", this.state.isAuthenticated)
+  }
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -65,7 +69,12 @@ class Login extends Component {
             console.log(res.data[0].userName);
             console.log("working");
             this.isAuthenticated()
-            const token = (res.data[0].userName);
+
+            const token = {
+              name : res.data[0].userName,
+              active : this.state.isAuthenticated
+            }
+            console.log(token);
             API.redirect(token);
             
           } 

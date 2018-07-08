@@ -281,7 +281,11 @@ class MyDrugs extends Component {
 
 
   render() {
-      return <div className="backimage">
+    let authenticate = localStorage.getItem("ActiveUser");
+    console.log(authenticate);
+    if (authenticate === 'true') {
+      return ( 
+        <div className="backimage">
           <Col size="md-12">
             <Row>
               <Nav />
@@ -456,7 +460,19 @@ class MyDrugs extends Component {
             {/* </Container> */}
           </div>
           <Footer />
-        </div>;
+        </div>
+      )
+    }
+    else if (authenticate === 'false') {
+      return (
+        <div>
+          <h1>Please Log In!
+          </h1>
+        </div>
+      )
+    }
+    }
     };
-  } 
+  
+
 export default MyDrugs;
