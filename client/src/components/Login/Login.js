@@ -53,7 +53,6 @@ class Login extends Component {
       })
         .then(res => {
 
-          console.log(res.data);
           if (res.data.length == 0) {
             alert("User Not Found");
             // console.log(this.state.passWord);
@@ -66,8 +65,7 @@ class Login extends Component {
             console.log(res.data[0].userName);
             console.log("working");
             this.isAuthenticated()
-            const token = {res.data[0].userName, this.state.isAuthenticated};
-            console.log(token);
+            const token = (res.data[0].userName);
             API.redirect(token);
             
           } 
