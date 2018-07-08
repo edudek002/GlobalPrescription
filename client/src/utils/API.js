@@ -14,6 +14,7 @@ export default {
   },
   findUser: function (userData) {
     console.log("this login button is working")
+    console.log(userData);
     return axios.get("/api/drugs/loginn", {params: userData});
   },
   displayUser: function (userData) {
@@ -24,7 +25,7 @@ export default {
   redirect: function (Token) {
     // setTimeout(function () { window.location = "/drugs"; }, 3000);
     localStorage.setItem("User", Token);
-    setTimeout(function () { window.location = "/drugs"; }, 1000);
+    // setTimeout(function () { window.location = "/drugs"; }, 1000);
     // window.location = "/drugs"
   },
 

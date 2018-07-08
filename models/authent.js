@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     userName: { type: String, required: true, unique : true },
     passWord: { type: String, required: true },
-    userDrugs: {type: Array, required: false}
+    userDrugs: {type: Array, required: false},
+    isAuthenticated : {required : true, type: Boolean}
     
 });
 

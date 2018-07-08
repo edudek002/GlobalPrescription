@@ -13,7 +13,8 @@ class Login extends Component {
   state = {
     userName: "",
     passWord: "",
-    userDrugs: []
+    userDrugs: [],
+    isAuthenticated : false
   };
 
   handleInputChange = event => {
@@ -48,31 +49,42 @@ class Login extends Component {
     event.preventDefault();
     if (this.state.userName && this.state.passWord) {
       API.findUser({
-        userName: this.state.userName,
-        passWord: this.state.passWord
+        userName: this.state.userName
       })
         .then(res => {
 
-            console.log(res.data.length);
-          while (Keycode.length > 0) {
-            Keycode.pop();
+          console.log(res.data);
+          if (res.data.length == 0) {
+            alert("User Not Found");
+            // console.log(this.state.passWord);
           }
-
-          if (res.data.length > 0) {
+          // while (Keycode.length > 0) {
+          //   Keycode.pop();
+          // }
+          else if (res.data[0].passWord === this.state.passWord) {
             Keycode.push(res.data[0].userName + " " + res.data[0].passWord);
             console.log(res.data[0].userName);
-            console.log(Keycode);
             console.log("working");
-            const token = res.data[0].userName;
+            this.isAuthenticated()
+            const token = {res.data[0].userName, this.state.isAuthenticated};
+            console.log(token);
             API.redirect(token);
             
-          } else {
+          } 
+          else {
             alert("sorry, that username and password was not found");
           }
         })
         .catch(err => console.log(err));
     }
   };
+
+  isAuthenticated = () => {
+    this.setState({
+      isAuthenticated : true
+    });
+    console.log(this.state.isAuthenticated)
+  }
 
   render() {
     return (
